@@ -1,0 +1,9 @@
+achievements:
+  - text: {uk: "Система доступу та аутентифікації для 2000+ користувачів.", en: "Access control and authentication system for 2000+ users."}
+    tags: [dotnet, authentication, authorization, access-management, enterprise]
+  - text: {uk: "Модернізація Delphi 6 legacy-системи до Delphi 12/13.", en: "Modernized a Delphi 6 legacy system to Delphi 12/13."}
+    tags: [delphi, legacy, modernization, architecture]
+  - text: {uk: "Архітектура та розробка платформи SMS-сповіщень через GSM API та SMPP.", en: "Architected and built an SMS notification platform via GSM API and SMPP."}
+    tags: [dotnet, integration, messaging, architecture]
+  - text: {uk: "Внутрішні web-системи для retail, audit та warehouse процесів.", en: "Built internal web systems for retail, audit, and warehouse workflows."}
+    tags: [dotnet, retail, reporting, warehouse, enterprise]

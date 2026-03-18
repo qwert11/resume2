@@ -1,0 +1,30 @@
+- id: warehouse
+  name: {uk: "Модернізація клієнта складського обліку", en: "Warehouse Client Modernization"}
+  period: "2024-now"
+  role: {uk: "Розробник / modernizer", en: "Developer / Modernizer"}
+  description: {uk: "Міграція legacy Delphi 6 рішення до Delphi 12/13 з переробкою архітектури та ядра.", en: "Migrated a legacy Delphi 6 solution to Delphi 12/13 with architecture and core redesign."}
+  tags: [full, delphi, desktop, warehouse, legacy, modernization, architecture]
+- id: recyclables
+  name: {uk: "Вторсировина", en: "Recyclables"}
+  period: "2023-2025"
+  role: {uk: "Розробник", en: "Developer"}
+  description: {uk: "ASP.NET MVC / Core web-проєкт з інтеграцією в M.E.Doc та retail-інфраструктуру.", en: "ASP.NET MVC / Core web project integrated with M.E.Doc and retail infrastructure."}
+  tags: [full, dotnet, web, backend, integration, retail, fullstack]
+- id: journals
+  name: {uk: "Журнали магазину", en: "Store Journals"}
+  period: "2022-2023"
+  role: {uk: "Розробник", en: "Developer"}
+  description: {uk: "Внутрішня audit/reporting платформа для retail-процесів.", en: "Internal audit/reporting platform for retail workflows."}
+  tags: [full, dotnet, web, backend, reporting, retail, fullstack]
+- id: uam
+  name: {uk: "UAM / User Access Manager", en: "UAM / User Access Manager"}
+  period: "2020-2022"
+  role: {uk: "Розробник", en: "Developer"}
+  description: {uk: "Система управління доступом та аутентифікацією для 2000+ користувачів.", en: "Access management and authentication system for 2000+ users."}
+  tags: [full, dotnet, web, backend, authentication, authorization, access-management, enterprise, fullstack]
+- id: sms
+  name: {uk: "SMS Messenger", en: "SMS Messenger"}
+  period: "2020-2021"
+  role: {uk: "Архітектор / розробник", en: "Architect / Developer"}
+  description: {uk: "Платформа SMS-сповіщень через GSM API та SMPP.", en: "SMS notification platform using GSM API and SMPP."}
+  tags: [full, dotnet, web, backend, integration, messaging, architecture, fullstack]

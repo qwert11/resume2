@@ -1,0 +1,29 @@
+# {{ profile_name }}
+**{{ title_text }}**
+
+{{ summary_text }}
+
+## {{ labels.projects }}
+{% for p in projects %}
+### {{ p.name.en }} ({{ p.period }})
+**Role:** {{ p.role.en }}
+
+{{ p.description.en }}
+
+{% endfor %}
+
+## {{ labels.details }}
+{% for item in experiences %}
+### {{ item.company.en }} | {{ item.title.en }}
+{{ item.start }} - {{ item.end }}
+
+{% for bullet in item.bullets.en %}
+- {{ bullet }}
+{% endfor %}
+
+{% endfor %}
+
+## {{ labels.education }}
+{% for e in education %}
+- **{{ e.specialty.en }}** — {{ e.institution.en }} ({{ e.period }})
+{% endfor %}

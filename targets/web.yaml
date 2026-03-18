@@ -1,0 +1,5 @@
+id: web
+route: web
+include_tags: [dotnet, delphi, web, backend, enterprise, integration, reporting, architecture, sql, warehouse, fullstack]
+summary_key: web
+title_key: web

@@ -1,0 +1,40 @@
+- id: atb
+  company: {uk: "АТБ / АТБ-МАРКЕТ / АТБ ЕНЕРГО", en: "ATB / ATB-MARKET / ATB ENERGO"}
+  title: {uk: "Провідний прикладний програміст / ASP.NET MVC розробник", en: "Lead Application Programmer / ASP.NET MVC Developer"}
+  start: "2016-06"
+  end: "2024-03"
+  city: {uk: "Дніпро", en: "Dnipro"}
+  tags: [full, dotnet, delphi, web, backend, retail, enterprise, internal-systems, warehouse, sql, authentication, authorization, reporting, signalr, integration, legacy, modernization, fullstack]
+  bullets:
+    uk: ["Супровід клієнтської частини системи складського обліку на Delphi 6.","З 2018 року паралельно розробка внутрішніх ASP.NET MVC рішень.","Проєкти: UAM, Журнали магазину, Вторсировина, зміна паролів магазину.","Модернізація legacy-рішення: перехід з Delphi 6 на Delphi 12/13.","Робота з доступом, аутентифікацією, audit-сценаріями, інтеграціями та real-time сповіщеннями."]
+    en: ["Maintained the client side of a warehouse accounting system in Delphi 6.","From 2018, also developed internal ASP.NET MVC solutions.","Projects included UAM, Store Journals, Recyclables, and Store Password Change.","Modernized a legacy solution by moving from Delphi 6 to Delphi 12/13.","Worked with access control, authentication, audit workflows, integrations, and real-time notifications."]
+- id: sms
+  company: {uk: "АТБ / внутрішній проєкт", en: "ATB / internal project"}
+  title: {uk: "Архітектор / розробник SMS Messenger", en: "Architect / Developer, SMS Messenger"}
+  start: "2020-01"
+  end: "2021-01"
+  city: {uk: "Дніпро", en: "Dnipro"}
+  tags: [full, dotnet, web, backend, enterprise, integration, messaging, architecture, sql, fullstack]
+  bullets:
+    uk: ["Проєктування архітектури платформи SMS-сповіщень.","Інтеграція через GSM API та SMPP.","Веб-рішення на .NET MVC / Web API з MS SQL."]
+    en: ["Designed the architecture of an SMS notification platform.","Integrated with GSM API and SMPP.","Built as a .NET MVC / Web API solution with MS SQL."]
+- id: freelance
+  company: {uk: "Фриланс / приватна практика", en: "Freelance / private practice"}
+  title: {uk: "Фулстек-розробник / фрилансер", en: "Full Stack Developer / Freelancer"}
+  start: "2015-07"
+  end: "2016-07"
+  city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
+  tags: [full, web, java, php, ecommerce, fullstack]
+  bullets:
+    uk: ["Розробка автоматизованої системи автосалону на Java + Firebird.","Налаштування WordPress / WooCommerce / OpenCart рішень.","Створення власного WordPress плагіна."]
+    en: ["Built an automated auto showroom system in Java + Firebird.","Configured WordPress / WooCommerce / OpenCart solutions.","Created a custom WordPress plugin."]
+- id: kjrk
+  company: {uk: "Криворізький Залізорудний Комбінат", en: "Kryvyi Rih Iron Ore Combine"}
+  title: {uk: "Інженер-програміст", en: "Engineer Programmer"}
+  start: "2013-06"
+  end: "2016-06"
+  city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
+  tags: [full, delphi, desktop, enterprise, industrial, mining, firebird, sql, reporting, synchronization]
+  bullets:
+    uk: ["Розробка та супровід ПЗ для видобутку і відвантаження руди.","Автоматизація видачі витратних матеріалів.","Підтримка систем підготовки виробництва та бюджетних процесів.","Синхронізація таблиць Firebird."]
+    en: ["Developed and maintained software for ore extraction and shipment.","Automated distribution of consumables.","Supported production preparation and budgeting systems.","Implemented Firebird table synchronization."]

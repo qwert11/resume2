@@ -1,0 +1,19 @@
+skills:
+  - {name: "C#", tags: [dotnet, web, backend, fullstack]}
+  - {name: "ASP.NET MVC", tags: [dotnet, web, backend, fullstack]}
+  - {name: "ASP.NET Core", tags: [dotnet, web, backend, fullstack]}
+  - {name: "Web API", tags: [dotnet, web, backend, fullstack]}
+  - {name: "SignalR", tags: [dotnet, web, realtime, fullstack]}
+  - {name: "OAuth2", tags: [authentication]}
+  - {name: "ADFS", tags: [authentication]}
+  - {name: "MS SQL", tags: [sql]}
+  - {name: "JavaScript", tags: [web, frontend, fullstack]}
+  - {name: "HTML/CSS", tags: [web, frontend, fullstack]}
+  - {name: "Delphi / Object Pascal", tags: [delphi, desktop]}
+  - {name: "Firebird", tags: [delphi, sql]}
+  - {name: "FastReport", tags: [delphi, reporting]}
+  - {name: "DevExpress", tags: [delphi, desktop]}
+  - {name: "Legacy modernization", tags: [legacy, modernization, architecture]}
+  - {name: "Modular monolith", tags: [architecture]}
+  - {name: "Three-tier architecture", tags: [architecture]}
+  - {name: "Enterprise integrations", tags: [integration, architecture]}

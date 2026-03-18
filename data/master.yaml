@@ -1,0 +1,33 @@
+profile:
+  name: {uk: "Юрій", en: "Yurii"}
+  titles:
+    full: {uk: "Full Stack / Enterprise Software Engineer", en: "Full Stack / Enterprise Software Engineer"}
+    dotnet: {uk: ".NET / ASP.NET / Full Stack Developer", en: ".NET / ASP.NET / Full Stack Developer"}
+    delphi: {uk: "Delphi Desktop Developer", en: "Delphi Desktop Developer"}
+    web: {uk: "Full Stack / Software Engineer", en: "Full Stack / Software Engineer"}
+  summary:
+    full: {uk: "Інженер ПЗ з сильним досвідом у Delphi, .NET, внутрішніх enterprise-системах, SQL, інтеграціях, модернізації legacy-коду та широкою кар'єрною історією в інженерних і виробничих ролях.", en: "Software engineer with strong experience in Delphi, .NET, internal enterprise systems, SQL, integrations, legacy modernization, and a broader background across engineering and production roles."}
+    dotnet: {uk: ".NET / ASP.NET / full stack розробник з досвідом внутрішніх веб-систем, аутентифікації, доступів, audit-сценаріїв, real-time сповіщень, інтеграцій та enterprise backend-розробки.", en: ".NET / ASP.NET / full stack developer with experience in internal web systems, authentication, access control, audit workflows, real-time notifications, integrations, and enterprise backend development."}
+    delphi: {uk: "Delphi-розробник з досвідом desktop enterprise-систем, Firebird, FastReport, VCL-компонентів, синхронізації БД та модернізації legacy-коду.", en: "Delphi developer with experience in desktop enterprise systems, Firebird, FastReport, VCL components, database synchronization, and legacy modernization."}
+    web: {uk: "Full stack / software engineer з досвідом enterprise web і desktop систем, retail та industrial доменів, сильною SQL-базою, інтеграціями та modernize-підходом до legacy-архітектур.", en: "Full stack / software engineer with experience in enterprise web and desktop systems, retail and industrial domains, strong SQL background, integrations, and a modernization-first approach to legacy architectures."}
+  sections:
+    stack: {uk: "Ключовий стек", en: "Core stack"}
+    strengths: {uk: "Сильні сторони", en: "Strengths"}
+    summary_cards: {uk: "Коротко", en: "At a glance"}
+    projects: {uk: "Ключові проєкти", en: "Key projects"}
+    details: {uk: "Деталі досвіду", en: "Detailed experience"}
+    education: {uk: "Освіта", en: "Education"}
+  ui:
+    auto: {uk: "Авто", en: "Auto"}
+    light: {uk: "Світла", en: "Light"}
+    dark: {uk: "Темна", en: "Dark"}
+    pdf: {uk: "PDF", en: "PDF"}
+    word: {uk: "Word", en: "Word"}
+    markdown: {uk: "Markdown", en: "Markdown"}
+    full: {uk: "Full", en: "Full"}
+    dotnet: {uk: ".NET", en: ".NET"}
+    delphi: {uk: "Delphi", en: "Delphi"}
+    web: {uk: "Web", en: "Web"}
+    ua: {uk: "Укр", en: "UA"}
+    en: {uk: "Анг", en: "EN"}
+    details_anchor: {uk: "Деталі нижче", en: "Details below"}
