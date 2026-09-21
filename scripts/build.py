@@ -1,90 +1,412 @@
 from pathlib import Path
+from datetime import date
 import argparse, json, shutil
+
 from jinja2 import Environment, FileSystemLoader
 from docx import Document
-from docx.shared import Pt
+from docx.shared import Pt, RGBColor
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
+
 from utils import load_yaml, filter_items, has_any_tag, ensure_dir
-ROOT=Path(__file__).resolve().parents[1]
-DATA=ROOT/'data'; TARGETS=ROOT/'targets'; TEMPLATES=ROOT/'templates'; ASSETS=ROOT/'assets'; OUTPUT=ROOT/'output'
-FONT_REGULAR='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'; FONT_BOLD='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / 'data'
+TARGETS = ROOT / 'targets'
+TEMPLATES = ROOT / 'templates'
+ASSETS = ROOT / 'assets'
+OUTPUT = ROOT / 'output'
+
+TARGET_IDS = ['full', 'dotnet', 'delphi', 'web']
+LANGS = ['en', 'uk']
+
+FONT_CANDIDATES = [
+    ('DejaVuSans', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+     'DejaVuSans-Bold', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'),
+    ('DejaVuSans', 'C:/Windows/Fonts/DejaVuSans.ttf',
+     'DejaVuSans-Bold', 'C:/Windows/Fonts/DejaVuSans-Bold.ttf'),
+    ('ArialUnicode', 'C:/Windows/Fonts/arial.ttf',
+     'ArialUnicode-Bold', 'C:/Windows/Fonts/arialbd.ttf'),
+]
+_fonts = {'regular': 'Helvetica', 'bold': 'Helvetica-Bold'}
+
+
 def register_fonts():
-    pdfmetrics.registerFont(TTFont('DejaVuSans', FONT_REGULAR)); pdfmetrics.registerFont(TTFont('DejaVuSans-Bold', FONT_BOLD))
-def labels(profile, lang='en'):
-    sec=profile['sections']; return {'projects':sec['projects'][lang],'details':sec['details'][lang],'education':sec['education'][lang]}
-def wrap_lines(text,width=95):
-    words=text.split(); lines=[]; cur=''
-    for w in words:
-        t=(cur+' '+w).strip()
-        if len(t)<=width: cur=t
-        else:
-            if cur: lines.append(cur)
-            cur=w
-    if cur: lines.append(cur)
-    return lines
-def build_docx(path, profile, target, experiences, projects, education, highlight):
-    doc=Document(); doc.styles['Normal'].font.name='Arial'; doc.styles['Normal'].font.size=Pt(10.5)
-    doc.add_heading(profile['name']['en'],0); p=doc.add_paragraph(); p.add_run(profile['titles'][target['title_key']]['en']).bold=True
-    doc.add_paragraph(profile['summary'][target['summary_key']]['en']); doc.add_heading('Core stack',level=1); doc.add_paragraph(', '.join(highlight[:12]))
-    doc.add_heading('Projects',level=1)
-    for pr in projects:
-        p=doc.add_paragraph(); p.add_run(f"{pr['name']['en']} ({pr['period']})").bold=True; doc.add_paragraph('Role: '+pr['role']['en']); doc.add_paragraph(pr['description']['en'])
-    doc.add_heading('Experience',level=1)
-    for ex in experiences:
-        p=doc.add_paragraph(); p.add_run(f"{ex['company']['en']} | {ex['title']['en']}").bold=True; doc.add_paragraph(f"{ex['start']} - {ex['end']}")
-        for b in ex['bullets']['en']: doc.add_paragraph(b, style='List Bullet')
-    doc.add_heading('Education',level=1)
-    for e in education: doc.add_paragraph(f"{e['specialty']['en']} — {e['institution']['en']} ({e['period']})", style='List Bullet')
+    """Register a Unicode font; fall back to a system one so local builds work too."""
+    for reg_name, reg_path, bold_name, bold_path in FONT_CANDIDATES:
+        if Path(reg_path).exists() and Path(bold_path).exists():
+            pdfmetrics.registerFont(TTFont(reg_name, reg_path))
+            pdfmetrics.registerFont(TTFont(bold_name, bold_path))
+            _fonts['regular'], _fonts['bold'] = reg_name, bold_name
+            return
+    print('warning: no Unicode TTF found, PDF falls back to Helvetica (Latin only)')
+
+
+# ---------------------------------------------------------------- helpers
+
+def t(value, lang):
+    """Read a {uk, en} value, tolerating plain strings."""
+    if value is None:
+        return ''
+    if isinstance(value, str):
+        return value
+    return value.get(lang) or value.get('en') or value.get('uk') or ''
+
+
+def norm(value):
+    """Normalize a value to a {uk, en} dict."""
+    if isinstance(value, dict):
+        return {'uk': value.get('uk') or value.get('en') or '', 'en': value.get('en') or value.get('uk') or ''}
+    return {'uk': value or '', 'en': value or ''}
+
+
+def filter_groups(groups, tags, full_mode):
+    """Keep skill groups and the items inside them that match the target."""
+    out = []
+    for g in groups:
+        items = [dict(s, name=norm(s['name'])) for s in g.get('items', [])
+                 if full_mode or has_any_tag(s.get('tags', []), tags)]
+        if not items:
+            continue
+        if not (full_mode or has_any_tag(g.get('tags', []), tags)):
+            continue
+        out.append({'id': g['id'], 'label': norm(g['label']), 'items': items})
+    return out
+
+
+def period_text(item, lang, present_word):
+    end = item['end']
+    if end == 'present':
+        end = present_word
+    return f"{item['start']} — {end}"
+
+
+# ---------------------------------------------------------------- documents
+
+def doc_sections(bundle, lang):
+    """Shared content model for md / docx / pdf."""
+    p = bundle['profile']
+    present = t(p['ui']['present'], lang)
+    return {
+        'name': t(p['name'], lang),
+        'title': t(bundle['title_obj'], lang),
+        'summary': t(bundle['summary_obj'], lang),
+        'location': t(p['location'], lang),
+        'contacts': [c['label'] for c in p['contacts']],
+        'labels': {k: t(v, lang) for k, v in p['sections'].items()},
+        'metrics': [f"{m['value']} {t(m['unit'], lang)} — {t(m['label'], lang)}".replace('  ', ' ')
+                    for m in bundle['metrics']],
+        'achievements': [t(a['text'], lang) for a in bundle['achievements']],
+        'stack': [(t(g['label'], lang), [t(s['name'], lang) for s in g['items']])
+                  for g in bundle['skill_groups']],
+        'projects': [{
+            'name': t(pr['name'], lang),
+            'period': pr['period'],
+            'role': t(pr['role'], lang),
+            'description': t(pr['description'], lang),
+            'stack': pr.get('stack') or [],
+            'link': (pr.get('link') or {}).get('href', ''),
+        } for pr in bundle['projects']],
+        'experiences': [{
+            'company': t(e['company'], lang),
+            'note': t(e.get('company_note'), lang),
+            'title': t(e['title'], lang),
+            'period': period_text(e, lang, present),
+            'city': t(e['city'], lang),
+            'bullets': e['bullets'][lang if lang in e['bullets'] else 'en'],
+        } for e in bundle['experiences']],
+        'domain': [(t(d['term'], lang), t(d['note'], lang)) for d in bundle['domain']],
+        'education': [{
+            'specialty': t(e['specialty'], lang),
+            'institution': t(e['institution'], lang),
+            'period': e['period'],
+            'kind': e.get('kind', 'degree'),
+        } for e in bundle['education']],
+        'languages': [(t(l['name'], lang), t(l['level'], lang)) for l in bundle['languages']],
+    }
+
+
+def build_docx(path, s):
+    doc = Document()
+    style = doc.styles['Normal']
+    style.font.name = 'Calibri'
+    style.font.size = Pt(10.5)
+
+    doc.add_heading(s['name'], 0)
+    p = doc.add_paragraph()
+    p.add_run(s['title']).bold = True
+    doc.add_paragraph(' · '.join(s['contacts'] + [s['location']]))
+    doc.add_paragraph(s['summary'])
+
+    if s['metrics']:
+        doc.add_heading(s['labels'].get('summary_cards', 'At a glance'), level=1)
+        for m in s['metrics']:
+            doc.add_paragraph(m, style='List Bullet')
+
+    doc.add_heading(s['labels']['strengths'], level=1)
+    for a in s['achievements']:
+        doc.add_paragraph(a, style='List Bullet')
+
+    doc.add_heading(s['labels']['stack'], level=1)
+    for label, items in s['stack']:
+        par = doc.add_paragraph()
+        par.add_run(f'{label}: ').bold = True
+        par.add_run(', '.join(items))
+
+    doc.add_heading(s['labels']['projects'], level=1)
+    for pr in s['projects']:
+        par = doc.add_paragraph()
+        par.add_run(f"{pr['name']} ({pr['period']})").bold = True
+        doc.add_paragraph(f"{pr['role']}")
+        doc.add_paragraph(pr['description'])
+        if pr['stack']:
+            doc.add_paragraph(', '.join(pr['stack']))
+        if pr['link']:
+            doc.add_paragraph(pr['link'])
+
+    doc.add_heading(s['labels']['details'], level=1)
+    for e in s['experiences']:
+        par = doc.add_paragraph()
+        head = f"{e['company']} — {e['title']}"
+        par.add_run(head).bold = True
+        doc.add_paragraph(f"{e['period']} · {e['city']}")
+        for b in e['bullets']:
+            doc.add_paragraph(b, style='List Bullet')
+
+    if s['domain']:
+        doc.add_heading(s['labels']['domain'], level=1)
+        for term, note in s['domain']:
+            par = doc.add_paragraph(style='List Bullet')
+            par.add_run(f'{term}: ').bold = True
+            par.add_run(note)
+
+    doc.add_heading(s['labels']['education'], level=1)
+    for e in s['education']:
+        doc.add_paragraph(f"{e['specialty']} — {e['institution']} ({e['period']})", style='List Bullet')
+
+    doc.add_heading(s['labels']['languages'], level=1)
+    for name, level in s['languages']:
+        doc.add_paragraph(f'{name} — {level}', style='List Bullet')
+
     doc.save(path)
-def build_pdf(path, profile, target, experiences, projects, education, highlight):
-    register_fonts(); c=canvas.Canvas(str(path),pagesize=A4); width,height=A4; x=42; y=height-50
-    def line(text,font='DejaVuSans',size=10,leading=14):
-        nonlocal y; c.setFont(font,size)
-        for ln in wrap_lines(text):
-            c.drawString(x,y,ln); y-=leading
-            if y<55:
-                c.showPage(); y=height-50; c.setFont(font,size)
-    line(profile['name']['en'],'DejaVuSans-Bold',18,22); line(profile['titles'][target['title_key']]['en'],'DejaVuSans-Bold',12,18); line(profile['summary'][target['summary_key']]['en'])
-    y-=6; line('Core stack','DejaVuSans-Bold',12,18); line(', '.join(highlight[:12]))
-    y-=6; line('Projects','DejaVuSans-Bold',12,18)
-    for pr in projects:
-        line(f"{pr['name']['en']} ({pr['period']})",'DejaVuSans-Bold',10,15); line('Role: '+pr['role']['en']); line(pr['description']['en'])
-    y-=6; line('Experience','DejaVuSans-Bold',12,18)
-    for ex in experiences:
-        line(f"{ex['company']['en']} | {ex['title']['en']}",'DejaVuSans-Bold',10,15); line(f"{ex['start']} - {ex['end']}")
-        for b in ex['bullets']['en']: line('• '+b)
-    y-=6; line('Education','DejaVuSans-Bold',12,18)
-    for e in education: line(f"- {e['specialty']['en']} — {e['institution']['en']} ({e['period']})")
+
+
+def build_pdf(path, s):
+    register_fonts()
+    reg, bold = _fonts['regular'], _fonts['bold']
+    c = canvas.Canvas(str(path), pagesize=A4)
+    width, height = A4
+    left, right = 46, 46
+    max_width = width - left - right
+    y = height - 52
+
+    def space(n):
+        nonlocal y
+        y -= n
+
+    def page_break_if_needed(need=40):
+        nonlocal y
+        if y < need:
+            c.showPage()
+            y = height - 52
+
+    def wrap(text, font, size, avail):
+        words, lines, cur = str(text).split(), [], ''
+        for w in words:
+            probe = (cur + ' ' + w).strip()
+            if pdfmetrics.stringWidth(probe, font, size) <= avail:
+                cur = probe
+            else:
+                if cur:
+                    lines.append(cur)
+                cur = w
+        if cur:
+            lines.append(cur)
+        return lines or ['']
+
+    def text_block(value, font=None, size=10, leading=13.5, indent=0, color=(0.1, 0.12, 0.13)):
+        nonlocal y
+        font = font or reg
+        c.setFillColorRGB(*color)
+        for line in wrap(value, font, size, max_width - indent):
+            page_break_if_needed(52)
+            c.setFont(font, size)
+            c.drawString(left + indent, y, line)
+            y -= leading
+
+    def heading(value):
+        nonlocal y
+        page_break_if_needed(72)
+        space(8)
+        c.setFillColorRGB(0.1, 0.12, 0.13)
+        c.setFont(bold, 11.5)
+        c.drawString(left, y, value.upper())
+        y -= 5
+        c.setStrokeColorRGB(0.75, 0.77, 0.75)
+        c.setLineWidth(0.6)
+        c.line(left, y, width - right, y)
+        y -= 13
+
+    text_block(s['name'], bold, 22, 26)
+    text_block(s['title'], reg, 12.5, 17, color=(0.28, 0.32, 0.31))
+    text_block(' · '.join(s['contacts'] + [s['location']]), reg, 9.5, 13, color=(0.35, 0.39, 0.38))
+    space(4)
+    text_block(s['summary'], reg, 10, 14, color=(0.18, 0.2, 0.21))
+
+    if s['metrics']:
+        heading(s['labels'].get('summary_cards', 'At a glance'))
+        for m in s['metrics']:
+            text_block('• ' + m, reg, 10, 14)
+
+    heading(s['labels']['strengths'])
+    for a in s['achievements']:
+        text_block('• ' + a, reg, 10, 14)
+
+    heading(s['labels']['stack'])
+    for label, items in s['stack']:
+        text_block(f"{label}: {', '.join(items)}", reg, 9.5, 13)
+
+    heading(s['labels']['projects'])
+    for pr in s['projects']:
+        text_block(f"{pr['name']} ({pr['period']}) — {pr['role']}", bold, 10, 14)
+        text_block(pr['description'], reg, 9.5, 13, indent=10, color=(0.24, 0.27, 0.27))
+        if pr['stack']:
+            text_block(', '.join(pr['stack']), reg, 9, 12, indent=10, color=(0.4, 0.44, 0.43))
+        if pr['link']:
+            text_block(pr['link'], reg, 9, 12, indent=10, color=(0.4, 0.44, 0.43))
+        space(3)
+
+    heading(s['labels']['details'])
+    for e in s['experiences']:
+        text_block(f"{e['company']} — {e['title']}", bold, 10, 14)
+        text_block(f"{e['period']} · {e['city']}", reg, 9, 12.5, color=(0.4, 0.44, 0.43))
+        for b in e['bullets']:
+            text_block('• ' + b, reg, 9.5, 13, indent=10, color=(0.24, 0.27, 0.27))
+        space(4)
+
+    if s['domain']:
+        heading(s['labels']['domain'])
+        for term, note in s['domain']:
+            text_block(f'• {term}: {note}', reg, 9.5, 13)
+
+    heading(s['labels']['education'])
+    for e in s['education']:
+        text_block(f"• {e['specialty']} — {e['institution']} ({e['period']})", reg, 9.5, 13)
+
+    heading(s['labels']['languages'])
+    for name, level in s['languages']:
+        text_block(f'• {name} — {level}', reg, 9.5, 13)
+
     c.save()
-def build_target(target_id):
-    master=load_yaml(DATA/'master.yaml'); profile=master['profile']; experiences=load_yaml(DATA/'experience.yaml'); projects=load_yaml(DATA/'projects.yaml'); skills=load_yaml(DATA/'skills.yaml')['skills']; education=load_yaml(DATA/'education.yaml')['education']; achievements=load_yaml(DATA/'achievements.yaml')['achievements']; target=load_yaml(TARGETS/f'{target_id}.yaml')
-    full_mode=target_id=='full'; tags=target['include_tags']; exp_f=filter_items(experiences,tags,full_mode); proj_f=filter_items(projects,tags,full_mode)
-    highlight=[]
-    for s in skills:
-        if full_mode or has_any_tag(s.get('tags',[]),tags):
-            if s['name'] not in highlight: highlight.append(s['name'])
-    overview_points=[{'uk':'10+ років у enterprise, retail та industrial системах.','en':'10+ years in enterprise, retail, and industrial systems.'},{'uk':'Delphi desktop + .NET / ASP.NET full stack в одному профілі.','en':'Delphi desktop + .NET / ASP.NET full stack in one profile.'},{'uk':'SQL, інтеграції, audit, доступи, internal systems.','en':'SQL, integrations, audit, access control, internal systems.'},{'uk':'Legacy modernization: Delphi 6 -> Delphi 12/13.','en':'Legacy modernization: Delphi 6 -> Delphi 12/13.'}]
-    out_dir=OUTPUT/target_id; ensure_dir(out_dir); root_prefix='../' if target_id!='full' else ''; assets_prefix='../' if target_id!='full' else ''; page_title=f"{profile['name']['en']} | {profile['titles'][target['title_key']]['en']}"
-    js_data={'profile':profile,'sections':profile['sections'],'ui':profile['ui'],'titleTextObj':profile['titles'][target['title_key']],'summaryTextObj':profile['summary'][target['summary_key']]}
-    env=Environment(loader=FileSystemLoader(str(TEMPLATES)))
-    html=env.get_template('site.html.j2').render(target=target,page_title=page_title,title_text=profile['titles'][target['title_key']]['en'],name_text=profile['name']['en'],summary_text=profile['summary'][target['summary_key']]['en'],highlight_skills=highlight[:12],achievements=achievements[:4],education=education,projects=proj_f[:6],experiences=exp_f,overview_points=overview_points,root_prefix=root_prefix,assets_prefix=assets_prefix,downloads_prefix='./',js_data=json.dumps(js_data, ensure_ascii=False))
-    (out_dir/'index.html').write_text(html,encoding='utf-8')
-    md=env.get_template('resume.md.j2').render(profile_name=profile['name']['en'],title_text=profile['titles'][target['title_key']]['en'],summary_text=profile['summary'][target['summary_key']]['en'],projects=proj_f,experiences=exp_f,education=education,labels=labels(profile,'en'))
-    (out_dir/'resume.md').write_text(md,encoding='utf-8')
-    build_docx(out_dir/'resume.docx', profile, target, exp_f, proj_f, education, highlight); build_pdf(out_dir/'resume.pdf', profile, target, exp_f, proj_f, education, highlight)
+
+
+# ---------------------------------------------------------------- build
+
+def build_target(target_id, env):
+    master = load_yaml(DATA / 'master.yaml')
+    profile = master['profile']
+    experiences = load_yaml(DATA / 'experience.yaml')
+    projects = load_yaml(DATA / 'projects.yaml')
+    skill_groups = load_yaml(DATA / 'skills.yaml')['groups']
+    education = load_yaml(DATA / 'education.yaml')['education']
+    achievements = load_yaml(DATA / 'achievements.yaml')['achievements']
+    domain = load_yaml(DATA / 'domain.yaml')['domain']
+    languages = load_yaml(DATA / 'languages.yaml')['languages']
+    target = load_yaml(TARGETS / f'{target_id}.yaml')
+
+    full_mode = target_id == 'full'
+    tags = target['include_tags']
+
+    bundle = {
+        'profile': profile,
+        'title_obj': profile['titles'][target['title_key']],
+        'summary_obj': profile['summary'][target['summary_key']],
+        'metrics': filter_items(profile['metrics'], tags, full_mode)[:4],
+        'achievements': filter_items(achievements, tags, full_mode)[:5],
+        'skill_groups': filter_groups(skill_groups, tags, full_mode),
+        'projects': filter_items(projects, tags, full_mode)[:6],
+        'experiences': filter_items(experiences, tags, full_mode),
+        'domain': filter_items(domain, tags, full_mode),
+        'education': education,
+        'languages': languages,
+    }
+
+    out_dir = OUTPUT / target_id
+    ensure_dir(out_dir)
+    prefix = '../' if target_id != 'full' else ''
+    page_title = f"{t(profile['name'], 'en')} — {t(bundle['title_obj'], 'en')}"
+    js_data = {
+        'profile': profile,
+        'sections': profile['sections'],
+        'ui': profile['ui'],
+        'titleTextObj': bundle['title_obj'],
+        'summaryTextObj': bundle['summary_obj'],
+    }
+
+    html = env.get_template('site.html.j2').render(
+        target=target,
+        page_title=page_title,
+        title_text=t(bundle['title_obj'], 'en'),
+        name_text=t(profile['name'], 'en'),
+        summary_text=t(bundle['summary_obj'], 'en'),
+        location=norm(profile['location']),
+        contacts=profile['contacts'],
+        metrics=[dict(m, unit=norm(m['unit']), label=norm(m['label'])) for m in bundle['metrics']],
+        achievements=bundle['achievements'],
+        skill_groups=bundle['skill_groups'],
+        projects=bundle['projects'],
+        experiences=bundle['experiences'],
+        domain=bundle['domain'],
+        education=bundle['education'],
+        languages=bundle['languages'],
+        root_prefix=prefix,
+        assets_prefix=prefix,
+        downloads_prefix='./',
+        build_date=date.today().isoformat(),
+        js_data=json.dumps(js_data, ensure_ascii=False),
+    )
+    (out_dir / 'index.html').write_text(html, encoding='utf-8')
+
+    for lang in LANGS:
+        s = doc_sections(bundle, lang)
+        suffix = '' if lang == 'en' else f'.{lang}'
+        md = env.get_template('resume.md.j2').render(s=s)
+        (out_dir / f'resume{suffix}.md').write_text(md, encoding='utf-8')
+        build_docx(out_dir / f'resume{suffix}.docx', s)
+        build_pdf(out_dir / f'resume{suffix}.pdf', s)
+
+
 def prepare_site():
-    site=OUTPUT/'site'
-    if site.exists(): shutil.rmtree(site)
-    site.mkdir(parents=True, exist_ok=True); shutil.copytree(ASSETS, site/'assets', dirs_exist_ok=True); shutil.copytree(OUTPUT/'full', site, dirs_exist_ok=True)
-    for t in ['dotnet','delphi','web']: shutil.copytree(OUTPUT/t, site/t, dirs_exist_ok=True)
+    site = OUTPUT / 'site'
+    if site.exists():
+        shutil.rmtree(site)
+    site.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(ASSETS, site / 'assets', dirs_exist_ok=True)
+    shutil.copytree(OUTPUT / 'full', site, dirs_exist_ok=True)
+    for tid in TARGET_IDS[1:]:
+        shutil.copytree(OUTPUT / tid, site / tid, dirs_exist_ok=True)
+    (site / '.nojekyll').write_text('', encoding='utf-8')
+
+
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('--target', choices=['full','dotnet','delphi','web']); p.add_argument('--all', action='store_true'); args=p.parse_args()
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--target', choices=TARGET_IDS)
+    ap.add_argument('--all', action='store_true')
+    args = ap.parse_args()
+
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES)), trim_blocks=False, lstrip_blocks=False)
+
     if args.all:
-        for t in ['full','dotnet','delphi','web']: build_target(t)
+        for tid in TARGET_IDS:
+            build_target(tid, env)
         prepare_site()
-    elif args.target: build_target(args.target)
-    else: raise SystemExit('Use --target or --all')
-if __name__=='__main__': main()
+    elif args.target:
+        build_target(args.target, env)
+    else:
+        raise SystemExit('Use --target or --all')
+
+
+if __name__ == '__main__':
+    main()

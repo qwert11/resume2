@@ -1,19 +1,104 @@
-skills:
-  - {name: "C#", tags: [dotnet, web, backend, fullstack]}
-  - {name: "ASP.NET MVC", tags: [dotnet, web, backend, fullstack]}
-  - {name: "ASP.NET Core", tags: [dotnet, web, backend, fullstack]}
-  - {name: "Web API", tags: [dotnet, web, backend, fullstack]}
-  - {name: "SignalR", tags: [dotnet, web, realtime, fullstack]}
-  - {name: "OAuth2", tags: [authentication]}
-  - {name: "ADFS", tags: [authentication]}
-  - {name: "MS SQL", tags: [sql]}
-  - {name: "JavaScript", tags: [web, frontend, fullstack]}
-  - {name: "HTML/CSS", tags: [web, frontend, fullstack]}
-  - {name: "Delphi / Object Pascal", tags: [delphi, desktop]}
-  - {name: "Firebird", tags: [delphi, sql]}
-  - {name: "FastReport", tags: [delphi, reporting]}
-  - {name: "DevExpress", tags: [delphi, desktop]}
-  - {name: "Legacy modernization", tags: [legacy, modernization, architecture]}
-  - {name: "Modular monolith", tags: [architecture]}
-  - {name: "Three-tier architecture", tags: [architecture]}
-  - {name: "Enterprise integrations", tags: [integration, architecture]}
+groups:
+  - id: backend
+    label: {uk: "Бекенд", en: "Backend"}
+    tags: [full, dotnet, web, backend]
+    items:
+      - {name: "C#", tags: [dotnet, web, backend]}
+      - {name: ".NET 7 / 6 / 5", tags: [dotnet, web, backend]}
+      - {name: ".NET Core 3.1", tags: [dotnet, web, backend]}
+      - {name: "ASP.NET Core", tags: [dotnet, web, backend]}
+      - {name: "ASP.NET MVC", tags: [dotnet, web, backend]}
+      - {name: "Web API / REST", tags: [dotnet, web, backend]}
+      - {name: "SignalR", tags: [dotnet, web, backend]}
+      - {name: "Worker Services", tags: [dotnet, backend]}
+      - {name: "Hangfire", tags: [dotnet, backend]}
+      - {name: "Quartz", tags: [dotnet, backend]}
+      - {name: "AutoMapper", tags: [dotnet, backend]}
+      - {name: "Flurl.Http", tags: [dotnet, backend]}
+  - id: data
+    label: {uk: "Дані", en: "Data"}
+    tags: [full, dotnet, delphi, web, sql]
+    items:
+      - {name: "MS SQL Server", tags: [dotnet, delphi, web, sql]}
+      - {name: "T-SQL", tags: [dotnet, delphi, web, sql]}
+      - {name: "EF Core 7", tags: [dotnet, web, sql]}
+      - {name: "ADO.NET", tags: [dotnet, sql]}
+      - {name: "Oracle", tags: [dotnet, delphi, sql]}
+      - {name: "PostgreSQL", tags: [dotnet, web, sql]}
+      - {name: "Firebird", tags: [delphi, sql]}
+      - {name: "SSIS", tags: [dotnet, sql]}
+      - {name: "SSRS", tags: [dotnet, sql]}
+      - {name: "SQL CLR", tags: [dotnet, sql]}
+  - id: frontend
+    label: {uk: "Фронтенд", en: "Front end"}
+    tags: [full, dotnet, web, frontend]
+    items:
+      - {name: "Angular 13", tags: [web, dotnet, frontend]}
+      - {name: "TypeScript", tags: [web, dotnet, frontend]}
+      - {name: "Kendo UI for Angular", tags: [web, dotnet, frontend]}
+      - {name: "Telerik UI for ASP.NET Core", tags: [web, dotnet, frontend]}
+      - {name: "Razor / MVC views", tags: [web, dotnet, frontend]}
+      - {name: "JavaScript", tags: [web, dotnet, frontend]}
+      - {name: "HTML / CSS", tags: [web, dotnet, frontend]}
+      - {name: "jQuery", tags: [web, frontend]}
+  - id: integration
+    label: {uk: "Інтеграції", en: "Integrations"}
+    tags: [full, dotnet, delphi, web, integration]
+    items:
+      - {name: "EDI / ЕДО", tags: [dotnet, delphi, integration]}
+      - {name: "M.E.Doc", tags: [dotnet, delphi, integration]}
+      - {name: "Oracle EBS", tags: [dotnet, integration]}
+      - {name: "1С", tags: [dotnet, integration]}
+      - {name: "Kafka", tags: [dotnet, integration]}
+      - {name: "BizTalk", tags: [dotnet, integration]}
+      - {name: "WCF / SOAP", tags: [dotnet, delphi, integration]}
+      - {name: "SMPP / GSM API", tags: [dotnet, integration]}
+      - {name: "API Gateway", tags: [dotnet, web, integration]}
+      - {name: "GemBox.Spreadsheet", tags: [dotnet, integration]}
+  - id: security
+    label: {uk: "Доступи", en: "Access and security"}
+    tags: [full, dotnet, web, authentication]
+    items:
+      - {name: "OpenID Connect", tags: [dotnet, web, authentication]}
+      - {name: "OAuth2", tags: [dotnet, web, authentication]}
+      - {name: "JWT Bearer", tags: [dotnet, web, authentication]}
+      - {name: "ADFS", tags: [dotnet, web, authentication]}
+      - {name: "Kerberos / Negotiate", tags: [dotnet, web, authentication]}
+      - {name: "Active Directory", tags: [dotnet, web, authentication]}
+      - {name: "RBAC", tags: [dotnet, web, authentication]}
+  - id: quality
+    label: {uk: "Якість і постачання", en: "Quality and delivery"}
+    tags: [full, dotnet, delphi, web, quality]
+    items:
+      - {name: "xUnit / NUnit", tags: [dotnet, web, quality]}
+      - {name: "NSubstitute / Moq", tags: [dotnet, web, quality]}
+      - {name: "AutoFixture", tags: [dotnet, quality]}
+      - {name: "FluentAssertions", tags: [dotnet, quality]}
+      - {name: "SonarQube", tags: [dotnet, web, quality]}
+      - {name: "Jenkins", tags: [dotnet, web, quality]}
+      - {name: "Docker", tags: [dotnet, web, quality]}
+      - {name: "Serilog / NLog", tags: [dotnet, web, quality]}
+      - {name: "Elastic APM", tags: [dotnet, quality]}
+      - {name: "Git / приватний NuGet", tags: [dotnet, delphi, web, quality]}
+  - id: desktop
+    label: {uk: "Десктоп", en: "Desktop"}
+    tags: [full, delphi, desktop]
+    items:
+      - {name: "Delphi 6 → 12 / 13", tags: [delphi, desktop]}
+      - {name: "Object Pascal", tags: [delphi, desktop]}
+      - {name: "VCL", tags: [delphi, desktop]}
+      - {name: "DevExpress", tags: [delphi, desktop]}
+      - {name: "FastReport", tags: [delphi, desktop]}
+      - {name: "RX Library", tags: [delphi, desktop]}
+      - {name: "Indy", tags: [delphi, desktop]}
+      - {name: "NativeExcel / NativeXml", tags: [delphi, desktop]}
+      - {name: "ADO / OLE DB", tags: [delphi, desktop]}
+  - id: practice
+    label: {uk: "Підходи", en: "Engineering practice"}
+    tags: [full, dotnet, delphi, web, architecture]
+    items:
+      - {name: {uk: "Модернізація legacy", en: "Legacy modernization"}, tags: [dotnet, delphi, web, architecture]}
+      - {name: {uk: "Модульний моноліт", en: "Modular monolith"}, tags: [dotnet, web, architecture]}
+      - {name: {uk: "Трирівнева архітектура", en: "Three-tier architecture"}, tags: [dotnet, delphi, architecture]}
+      - {name: {uk: "Проєктування інтеграцій", en: "Integration design"}, tags: [dotnet, delphi, architecture]}
+      - {name: {uk: "Робота в проді 24/7", en: "Production ownership"}, tags: [dotnet, delphi, web, architecture]}

@@ -1,29 +1,58 @@
-# {{ profile_name }}
-**{{ title_text }}**
+# {{ s.name }}
 
-{{ summary_text }}
+**{{ s.title }}**
 
-## {{ labels.projects }}
-{% for p in projects %}
-### {{ p.name.en }} ({{ p.period }})
-**Role:** {{ p.role.en }}
+{{ s.contacts | join(' · ') }} · {{ s.location }}
 
-{{ p.description.en }}
+{{ s.summary }}
 
+## {{ s.labels.summary_cards }}
+{% for m in s.metrics %}
+- {{ m }}
+{%- endfor %}
+
+## {{ s.labels.strengths }}
+{% for a in s.achievements %}
+- {{ a }}
+{%- endfor %}
+
+## {{ s.labels.stack }}
+{% for label, items in s.stack %}
+- **{{ label }}:** {{ items | join(', ') }}
+{%- endfor %}
+
+## {{ s.labels.projects }}
+{% for p in s.projects %}
+### {{ p.name }} · {{ p.period }}
+*{{ p.role }}*
+
+{{ p.description }}
+{% if p.stack %}
+`{{ p.stack | join('` `') }}`
+{% endif %}{% if p.link %}
+{{ p.link }}
+{% endif %}
 {% endfor %}
-
-## {{ labels.details }}
-{% for item in experiences %}
-### {{ item.company.en }} | {{ item.title.en }}
-{{ item.start }} - {{ item.end }}
-
-{% for bullet in item.bullets.en %}
-- {{ bullet }}
+## {{ s.labels.details }}
+{% for e in s.experiences %}
+### {{ e.company }} — {{ e.title }}
+{{ e.period }} · {{ e.city }}{% if e.note %} · {{ e.note }}{% endif %}
+{% for b in e.bullets %}
+- {{ b }}
+{%- endfor %}
 {% endfor %}
+{% if s.domain %}
+## {{ s.labels.domain }}
+{% for term, note in s.domain %}
+- **{{ term }}** — {{ note }}
+{%- endfor %}
+{% endif %}
+## {{ s.labels.education }}
+{% for e in s.education %}
+- **{{ e.specialty }}** — {{ e.institution }} ({{ e.period }})
+{%- endfor %}
 
-{% endfor %}
-
-## {{ labels.education }}
-{% for e in education %}
-- **{{ e.specialty.en }}** — {{ e.institution.en }} ({{ e.period }})
-{% endfor %}
+## {{ s.labels.languages }}
+{% for name, level in s.languages %}
+- **{{ name }}** — {{ level }}
+{%- endfor %}

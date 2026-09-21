@@ -1,22 +1,62 @@
 profile:
-  name: {uk: "Юрій", en: "Yurii"}
+  name: {uk: "Юрій Заїка", en: "Yurii Zaika"}
+  location: {uk: "Дніпро, Україна · віддалено або гібрид", en: "Dnipro, Ukraine · remote or hybrid"}
   titles:
-    full: {uk: "Full Stack / Enterprise Software Engineer", en: "Full Stack / Enterprise Software Engineer"}
-    dotnet: {uk: ".NET / ASP.NET / Full Stack Developer", en: ".NET / ASP.NET / Full Stack Developer"}
-    delphi: {uk: "Delphi Desktop Developer", en: "Delphi Desktop Developer"}
-    web: {uk: "Full Stack / Software Engineer", en: "Full Stack / Software Engineer"}
+    full: {uk: "Провідний інженер ПЗ · .NET та Delphi", en: "Lead Software Engineer · .NET & Delphi"}
+    dotnet: {uk: "Senior .NET інженер", en: "Senior .NET Engineer"}
+    delphi: {uk: "Senior Delphi інженер · модернізація legacy", en: "Senior Delphi Engineer · Legacy Modernization"}
+    web: {uk: "Full Stack інженер · .NET та Angular", en: "Full Stack Engineer · .NET & Angular"}
   summary:
-    full: {uk: "Інженер ПЗ з сильним досвідом у Delphi, .NET, внутрішніх enterprise-системах, SQL, інтеграціях, модернізації legacy-коду та широкою кар'єрною історією в інженерних і виробничих ролях.", en: "Software engineer with strong experience in Delphi, .NET, internal enterprise systems, SQL, integrations, legacy modernization, and a broader background across engineering and production roles."}
-    dotnet: {uk: ".NET / ASP.NET / full stack розробник з досвідом внутрішніх веб-систем, аутентифікації, доступів, audit-сценаріїв, real-time сповіщень, інтеграцій та enterprise backend-розробки.", en: ".NET / ASP.NET / full stack developer with experience in internal web systems, authentication, access control, audit workflows, real-time notifications, integrations, and enterprise backend development."}
-    delphi: {uk: "Delphi-розробник з досвідом desktop enterprise-систем, Firebird, FastReport, VCL-компонентів, синхронізації БД та модернізації legacy-коду.", en: "Delphi developer with experience in desktop enterprise systems, Firebird, FastReport, VCL components, database synchronization, and legacy modernization."}
-    web: {uk: "Full stack / software engineer з досвідом enterprise web і desktop систем, retail та industrial доменів, сильною SQL-базою, інтеграціями та modernize-підходом до legacy-архітектур.", en: "Full stack / software engineer with experience in enterprise web and desktop systems, retail and industrial domains, strong SQL background, integrations, and a modernization-first approach to legacy architectures."}
+    full:
+      uk: "Десять років усередині ядра однієї роздрібної мережі: торгова система на Delphi, якою щодня працюють магазини, і сервіси на ASP.NET Core, що поступово забирають її функції. Доступи для 2000+ користувачів, фіскальні та EDI-інтеграції, міграція клієнта з Delphi 6 на Delphi 12."
+      en: "Ten years inside the core systems of one retail network: a Delphi trading platform that stores run on daily, and ASP.NET Core services that keep taking over its functions. Access control for 2,000+ users, fiscal and EDI integrations, and an ongoing Delphi 6 to Delphi 12 client migration."
+    dotnet:
+      uk: "Senior .NET інженер: ASP.NET Core та Web API на .NET 7, EF Core і T-SQL, інтеграції з Kafka, EDI, M.E.Doc та Oracle EBS, аутентифікація через OIDC, ADFS і Kerberos. Власна система керування доступом на 2000+ користувачів."
+      en: "Senior .NET engineer: ASP.NET Core and Web API on .NET 7, EF Core and T-SQL, integrations over Kafka, EDI, M.E.Doc and Oracle EBS, authentication through OIDC, ADFS and Kerberos. Built the in-house access management system used by 2,000+ people."
+    delphi:
+      uk: "Delphi-інженер із десятирічним досвідом супроводу торгової системи у продакшені: 955 модулів, 828 форм, MS SQL. Веду міграцію клієнта з Delphi 6 на Delphi 12 і написав інструмент звіряння форм та мапінгу БД між версіями."
+      en: "Delphi engineer with ten years of production ownership of a retail trading system: 955 units, 828 forms, MS SQL. Currently migrating the client from Delphi 6 to Delphi 12, with a purpose-built tool that diffs forms and database mappings between the two versions."
+    web:
+      uk: "Full stack інженер: ASP.NET Core та Web API на бекенді, Angular 13 з Kendo UI і Razor на фронті, real-time через SignalR. Внутрішні системи для роздрібної мережі — доступи, аудит, звітність, інтеграції."
+      en: "Full stack engineer: ASP.NET Core and Web API on the back end, Angular 13 with Kendo UI and Razor on the front, real-time over SignalR. Internal systems for a retail network: access control, audit, reporting, integrations."
+  contacts:
+    - {id: email, label: "xetr11@gmail.com", href: "mailto:xetr11@gmail.com"}
+    - {id: telegram, label: "t.me/xetr_11", href: "https://t.me/xetr_11"}
+    - {id: github, label: "github.com/qwert11", href: "https://github.com/qwert11"}
+  metrics:
+    - value: "10"
+      unit: {uk: "років", en: "years"}
+      label: {uk: "у виробничих системах роздрібу, з 2016 і донині", en: "in production retail systems, 2016 to now"}
+      tags: [full, dotnet, delphi, web]
+    - value: "2 000+"
+      unit: {uk: "", en: ""}
+      label: {uk: "користувачів у системі доступів, яку я побудував", en: "users on the access system I built"}
+      tags: [full, dotnet, web]
+    - value: "33"
+      unit: {uk: "", en: ""}
+      label: {uk: "внутрішні системи мережі, у яких є мій код", en: "internal systems of the network carry my code"}
+      tags: [full, dotnet, delphi, web]
+    - value: "2"
+      unit: {uk: "стеки", en: "stacks"}
+      label: {uk: "Delphi і .NET — паралельно, без зупинки бізнесу", en: "Delphi and .NET in parallel, with the business running"}
+      tags: [full, delphi]
+    - value: "955"
+      unit: {uk: "модулів", en: "units"}
+      label: {uk: "і 828 форм у клієнті торгової системи", en: "and 828 forms in the trading system client"}
+      tags: [delphi]
+    - value: ".NET 7"
+      unit: {uk: "", en: ""}
+      label: {uk: "основна платформа сервісів; ще 3.1, 5 і 6 у супроводі", en: "the main service platform; 3.1, 5 and 6 also in support"}
+      tags: [dotnet, web]
   sections:
-    stack: {uk: "Ключовий стек", en: "Core stack"}
-    strengths: {uk: "Сильні сторони", en: "Strengths"}
+    stack: {uk: "Стек", en: "Stack"}
+    strengths: {uk: "Що я зробив", en: "What I delivered"}
     summary_cards: {uk: "Коротко", en: "At a glance"}
     projects: {uk: "Ключові проєкти", en: "Key projects"}
-    details: {uk: "Деталі досвіду", en: "Detailed experience"}
-    education: {uk: "Освіта", en: "Education"}
+    details: {uk: "Досвід", en: "Experience"}
+    education: {uk: "Освіта та сертифікати", en: "Education and certificates"}
+    domain: {uk: "Предметна область", en: "Domain knowledge"}
+    languages: {uk: "Мови", en: "Languages"}
   ui:
     auto: {uk: "Авто", en: "Auto"}
     light: {uk: "Світла", en: "Light"}
@@ -24,10 +64,12 @@ profile:
     pdf: {uk: "PDF", en: "PDF"}
     word: {uk: "Word", en: "Word"}
     markdown: {uk: "Markdown", en: "Markdown"}
-    full: {uk: "Full", en: "Full"}
+    full: {uk: "Все", en: "Full"}
     dotnet: {uk: ".NET", en: ".NET"}
     delphi: {uk: "Delphi", en: "Delphi"}
     web: {uk: "Web", en: "Web"}
     ua: {uk: "Укр", en: "UA"}
     en: {uk: "Анг", en: "EN"}
     details_anchor: {uk: "Деталі нижче", en: "Details below"}
+    present: {uk: "донині", en: "present"}
+    profiles_hint: {uk: "Профіль резюме", en: "Resume profile"}

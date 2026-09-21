@@ -1,30 +1,64 @@
-- id: warehouse
-  name: {uk: "Модернізація клієнта складського обліку", en: "Warehouse Client Modernization"}
-  period: "2024-now"
-  role: {uk: "Розробник / modernizer", en: "Developer / Modernizer"}
-  description: {uk: "Міграція legacy Delphi 6 рішення до Delphi 12/13 з переробкою архітектури та ядра.", en: "Migrated a legacy Delphi 6 solution to Delphi 12/13 with architecture and core redesign."}
+- id: market4
+  name: {uk: "Міграція торгового клієнта: Delphi 6 → Delphi 12", en: "Trading client migration: Delphi 6 to Delphi 12"}
+  period: "2024 — 2026"
+  role: {uk: "Технічний лід міграції", en: "Migration lead"}
+  description:
+    uk: "Переведення клієнта торгової системи (955 модулів, 828 форм) на сучасний компілятор із переробкою ядра. Написав окремий інструмент, що звіряє форми та мапінг таблиць між старою і новою версіями — міграція йде без зупинки магазинів."
+    en: "Moving the trading system client (955 units, 828 forms) to a modern compiler with a core redesign. Built a separate tool that diffs forms and table mappings between the old and new versions, so the migration runs without stopping stores."
+  stack: ["Delphi 12/13", "Object Pascal", "VCL", "MS SQL", "DevExpress", "FastReport"]
+  link: {label: "github.com/qwert11/d6_d13_dbmapping_checker", href: "https://github.com/qwert11/d6_d13_dbmapping_checker"}
   tags: [full, delphi, desktop, warehouse, legacy, modernization, architecture]
-- id: recyclables
-  name: {uk: "Вторсировина", en: "Recyclables"}
-  period: "2023-2025"
+- id: fiscal
+  name: {uk: "Фіскальний контур: еАкциз, АЕД, митниця", en: "Fiscal workflows: excise stamps, AED, customs"}
+  period: "2019 — 2026"
+  role: {uk: "Розробник напряму", en: "Owner of the workstream"}
+  description:
+    uk: "Наскрізна підтримка змін законодавства в торговій системі: сканування акцизних марок, електронні акцизні документи, коригування податкових накладних, УКТЗЕД, митні спрощення, ставка ПДВ 14 %."
+    en: "End-to-end delivery of legislative change inside the trading system: excise stamp scanning, electronic excise documents, tax invoice adjustments, UKTZED codes, customs simplifications, the 14% VAT rate."
+  stack: ["Delphi", "T-SQL", "MS SQL", "EDI", "M.E.Doc"]
+  tags: [full, delphi, dotnet, retail, integration, enterprise]
+- id: uam
+  name: {uk: "UAM — керування доступом", en: "UAM — access management"}
+  period: "2020 — 2022"
   role: {uk: "Розробник", en: "Developer"}
-  description: {uk: "ASP.NET MVC / Core web-проєкт з інтеграцією в M.E.Doc та retail-інфраструктуру.", en: "ASP.NET MVC / Core web project integrated with M.E.Doc and retail infrastructure."}
-  tags: [full, dotnet, web, backend, integration, retail, fullstack]
+  description:
+    uk: "Централізована система прав і аутентифікації для 2000+ користувачів мережі: ролі та заявки на доступ, інтеграція з Active Directory, вхід через OpenID Connect, ADFS і Kerberos."
+    en: "Centralized permissions and authentication for 2,000+ people in the network: roles and access requests, Active Directory integration, sign-in through OpenID Connect, ADFS and Kerberos."
+  stack: ["ASP.NET Core", "C#", "EF Core", "MS SQL", "OIDC", "ADFS", "Angular"]
+  tags: [full, dotnet, web, backend, authentication, authorization, access-management, enterprise, fullstack]
 - id: journals
   name: {uk: "Журнали магазину", en: "Store Journals"}
-  period: "2022-2023"
+  period: "2021 — 2023"
   role: {uk: "Розробник", en: "Developer"}
-  description: {uk: "Внутрішня audit/reporting платформа для retail-процесів.", en: "Internal audit/reporting platform for retail workflows."}
+  description:
+    uk: "Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах. Найінтенсивніший проєкт за обсягом коду серед веб-систем."
+    en: "Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting. The most code-intensive of the web systems."
+  stack: ["ASP.NET Core", "Angular 13", "Kendo UI", "EF Core", "MS SQL", "SignalR"]
   tags: [full, dotnet, web, backend, reporting, retail, fullstack]
-- id: uam
-  name: {uk: "UAM / User Access Manager", en: "UAM / User Access Manager"}
-  period: "2020-2022"
+- id: recyclables
+  name: {uk: "Вторсировина та оборотна тара", en: "Recyclables and returnable packaging"}
+  period: "2019 — 2024"
   role: {uk: "Розробник", en: "Developer"}
-  description: {uk: "Система управління доступом та аутентифікацією для 2000+ користувачів.", en: "Access management and authentication system for 2000+ users."}
-  tags: [full, dotnet, web, backend, authentication, authorization, access-management, enterprise, fullstack]
+  description:
+    uk: "Веб-система обліку вторсировини й пулінгової тари з документообігом: інтеграція з M.E.Doc, обмін з постачальниками через EDI, звітність для бухгалтерії."
+    en: "Web system for recyclables and pooled packaging with document flow: M.E.Doc integration, supplier exchange over EDI, accounting reports."
+  stack: ["ASP.NET Core", "ASP.NET MVC", "EF Core", "MS SQL", "M.E.Doc", "EDI"]
+  tags: [full, dotnet, web, backend, integration, retail, fullstack]
 - id: sms
   name: {uk: "SMS Messenger", en: "SMS Messenger"}
-  period: "2020-2021"
-  role: {uk: "Архітектор / розробник", en: "Architect / Developer"}
-  description: {uk: "Платформа SMS-сповіщень через GSM API та SMPP.", en: "SMS notification platform using GSM API and SMPP."}
+  period: "2020 — 2023"
+  role: {uk: "Архітектор і розробник", en: "Architect and developer"}
+  description:
+    uk: "Платформа SMS-сповіщень мережі: власний шлюз до операторів через SMPP і до модемів через GSM API, черги розсилок, API для внутрішніх систем."
+    en: "The network's SMS notification platform: an in-house gateway to carriers over SMPP and to modems over GSM API, campaign queues, an API for internal systems."
+  stack: ["ASP.NET Core", "Web API", "SMPP", "GSM API", "MS SQL", "Hangfire"]
   tags: [full, dotnet, web, backend, integration, messaging, architecture, fullstack]
+- id: gateway
+  name: {uk: "API Gateway і сервіс звітності", en: "API Gateway and reporting service"}
+  period: "2018 — 2020"
+  role: {uk: "Розробник", en: "Developer"}
+  description:
+    uk: "Шлюз для внутрішніх сервісів мережі та сервіс звітності поверх MS SQL: єдина точка входу, наскрізна передача заголовків і авторизації, вивантаження у Excel."
+    en: "A gateway for the network's internal services and a reporting service over MS SQL: a single entry point, header and auth propagation, Excel exports."
+  stack: [".NET Core", "Web API", "MS SQL", "SSRS", "GemBox.Spreadsheet"]
+  tags: [full, dotnet, web, backend, reporting, integration, fullstack]

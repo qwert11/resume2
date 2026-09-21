@@ -1,1 +1,33 @@
-(function(){const KEY='resume-theme-mode';function setVars(v){Object.entries(v).forEach(([k,val])=>document.documentElement.style.setProperty(k,val));}function light(){setVars({'--bg':'#ffffff','--panel':'#ffffff','--panel-alt':'#f5f7fb','--text':'#111111','--muted':'#4d5562','--line':'#d7dde7','--accent':'#2b5cff','--accent-ink':'#ffffff','--chip':'#eef2ff'});}function dark(){setVars({'--bg':'#0f172a','--panel':'#111827','--panel-alt':'#172133','--text':'#f8fafc','--muted':'#c0cad7','--line':'#2b3952','--accent':'#7aa2ff','--accent-ink':'#081120','--chip':'#1d2b45'});}function autoApply(){const d=new Date();const h=d.getHours()+d.getMinutes()/60;if(h>=7&&h<20)light();else dark();}function setMode(mode){localStorage.setItem(KEY,mode);document.querySelectorAll('[data-theme-mode]').forEach(b=>b.classList.toggle('active',b.dataset.themeMode===mode));if(mode==='light')light();else if(mode==='dark')dark();else autoApply();}document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-theme-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.themeMode)));setMode(localStorage.getItem(KEY)||'auto');});})();
+(function () {
+  var KEY = 'resume-theme-mode';
+  var root = document.documentElement;
+
+  function byClock() {
+    var h = new Date().getHours();
+    return (h >= 7 && h < 20) ? 'light' : 'dark';
+  }
+
+  function paint(mode) {
+    var theme = (mode === 'auto') ? byClock() : mode;
+    root.setAttribute('data-theme', theme);
+  }
+
+  function setMode(mode) {
+    try { localStorage.setItem(KEY, mode); } catch (e) {}
+    paint(mode);
+    document.querySelectorAll('[data-theme-mode]').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.themeMode === mode);
+    });
+  }
+
+  var saved = 'auto';
+  try { saved = localStorage.getItem(KEY) || 'auto'; } catch (e) {}
+  paint(saved);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-theme-mode]').forEach(function (b) {
+      b.addEventListener('click', function () { setMode(b.dataset.themeMode); });
+    });
+    setMode(saved);
+  });
+})();

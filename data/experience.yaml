@@ -1,40 +1,84 @@
 - id: atb
-  company: {uk: "АТБ / АТБ-МАРКЕТ / АТБ ЕНЕРГО", en: "ATB / ATB-MARKET / ATB ENERGO"}
-  title: {uk: "Провідний прикладний програміст / ASP.NET MVC розробник", en: "Lead Application Programmer / ASP.NET MVC Developer"}
+  company: {uk: "АТБ-Маркет", en: "ATB-Market"}
+  company_note: {uk: "найбільша продуктова мережа України", en: "Ukraine's largest grocery retail network"}
+  title: {uk: "Провідний прикладний програміст", en: "Lead Application Programmer"}
   start: "2016-06"
-  end: "2024-03"
+  end: "present"
   city: {uk: "Дніпро", en: "Dnipro"}
-  tags: [full, dotnet, delphi, web, backend, retail, enterprise, internal-systems, warehouse, sql, authentication, authorization, reporting, signalr, integration, legacy, modernization, fullstack]
+  tags: [full, dotnet, delphi, web, backend, retail, enterprise, internal-systems, warehouse, sql, authentication, authorization, access-management, reporting, signalr, integration, messaging, architecture, legacy, modernization, desktop, quality, fullstack]
   bullets:
-    uk: ["Супровід клієнтської частини системи складського обліку на Delphi 6.","З 2018 року паралельно розробка внутрішніх ASP.NET MVC рішень.","Проєкти: UAM, Журнали магазину, Вторсировина, зміна паролів магазину.","Модернізація legacy-рішення: перехід з Delphi 6 на Delphi 12/13.","Робота з доступом, аутентифікацією, audit-сценаріями, інтеграціями та real-time сповіщеннями."]
-    en: ["Maintained the client side of a warehouse accounting system in Delphi 6.","From 2018, also developed internal ASP.NET MVC solutions.","Projects included UAM, Store Journals, Recyclables, and Store Password Change.","Modernized a legacy solution by moving from Delphi 6 to Delphi 12/13.","Worked with access control, authentication, audit workflows, integrations, and real-time notifications."]
-- id: sms
-  company: {uk: "АТБ / внутрішній проєкт", en: "ATB / internal project"}
-  title: {uk: "Архітектор / розробник SMS Messenger", en: "Architect / Developer, SMS Messenger"}
-  start: "2020-01"
-  end: "2021-01"
-  city: {uk: "Дніпро", en: "Dnipro"}
-  tags: [full, dotnet, web, backend, enterprise, integration, messaging, architecture, sql, fullstack]
-  bullets:
-    uk: ["Проєктування архітектури платформи SMS-сповіщень.","Інтеграція через GSM API та SMPP.","Веб-рішення на .NET MVC / Web API з MS SQL."]
-    en: ["Designed the architecture of an SMS notification platform.","Integrated with GSM API and SMPP.","Built as a .NET MVC / Web API solution with MS SQL."]
+    uk:
+      - "Відповідаю за клієнтську частину торгової системи мережі: 955 модулів, 828 форм, MS SQL — документи постачання, ціни, фіскальні накладні."
+      - "З 2018 паралельно будую внутрішні сервіси на ASP.NET Core і Angular: доступи, аудит, звітність, інтеграції — 33 системи мережі містять мій код."
+      - "UAM: система керування доступом для 2000+ користувачів на OpenID Connect, ADFS і Kerberos."
+      - "Інтеграції мережі: EDI та ЕДО, M.E.Doc, Oracle EBS, 1С, Kafka, BizTalk, SSIS та SSRS."
+      - "Фіскальні зміни наскрізь по системах: еАкциз і АЕД, УКТЗЕД, митні спрощення, ставки ПДВ — у працюючій мережі."
+      - "Веду міграцію клієнта з Delphi 6 на Delphi 12/13 з власним інструментом звіряння форм і мапінгу БД."
+      - "Інженерна практика: тести на xUnit і NSubstitute, SonarQube та Jenkins, Serilog, Docker, приватний NuGet."
+    en:
+      - "Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices."
+      - "Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code."
+      - "UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos."
+      - "Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS."
+      - "Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network."
+      - "Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool."
+      - "Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed."
 - id: freelance
-  company: {uk: "Фриланс / приватна практика", en: "Freelance / private practice"}
-  title: {uk: "Фулстек-розробник / фрилансер", en: "Full Stack Developer / Freelancer"}
+  company: {uk: "Фриланс і приватна практика", en: "Freelance and private practice"}
+  title: {uk: "Фулстек-розробник", en: "Full Stack Developer"}
   start: "2015-07"
   end: "2016-07"
   city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
-  tags: [full, web, java, php, ecommerce, fullstack]
+  tags: [full, web, java, php, ecommerce, frontend, fullstack]
   bullets:
-    uk: ["Розробка автоматизованої системи автосалону на Java + Firebird.","Налаштування WordPress / WooCommerce / OpenCart рішень.","Створення власного WordPress плагіна."]
-    en: ["Built an automated auto showroom system in Java + Firebird.","Configured WordPress / WooCommerce / OpenCart solutions.","Created a custom WordPress plugin."]
+    uk:
+      - "Автоматизована система автосалону на Java і Firebird: облік автомобілів, продажів і звітність."
+      - "Інтернет-магазини на WordPress / WooCommerce та OpenCart, власний плагін для WordPress."
+    en:
+      - "An automated car dealership system on Java and Firebird: vehicles, sales and reporting."
+      - "Online stores on WordPress / WooCommerce and OpenCart, plus a custom WordPress plugin."
+- id: teaching
+  company: {uk: "Курси сучасних професій", en: "Modern Professions Courses"}
+  title: {uk: "Викладач програмування", en: "Programming Instructor"}
+  start: "2015-01"
+  end: "2016-01"
+  city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
+  tags: [full, teaching, mentoring, java, sql]
+  bullets:
+    uk:
+      - "Курс для початківців: ООП, Java Core, Hibernate, SQL — від перших програм до роботи з базою."
+      - "Підготував навчальні матеріали та практикуми, вів групи з нуля до перших проєктів."
+    en:
+      - "A beginners' course: OOP, Java Core, Hibernate, SQL, from first programs to working with a database."
+      - "Wrote the course materials and labs, and took groups from zero to their first projects."
 - id: kjrk
-  company: {uk: "Криворізький Залізорудний Комбінат", en: "Kryvyi Rih Iron Ore Combine"}
+  company: {uk: "Криворізький залізорудний комбінат", en: "Kryvyi Rih Iron Ore Combine"}
+  company_note: {uk: "підземний видобуток руди", en: "underground ore mining"}
   title: {uk: "Інженер-програміст", en: "Engineer Programmer"}
   start: "2013-06"
   end: "2016-06"
   city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
   tags: [full, delphi, desktop, enterprise, industrial, mining, firebird, sql, reporting, synchronization]
   bullets:
-    uk: ["Розробка та супровід ПЗ для видобутку і відвантаження руди.","Автоматизація видачі витратних матеріалів.","Підтримка систем підготовки виробництва та бюджетних процесів.","Синхронізація таблиць Firebird."]
-    en: ["Developed and maintained software for ore extraction and shipment.","Automated distribution of consumables.","Supported production preparation and budgeting systems.","Implemented Firebird table synchronization."]
+    uk:
+      - "Комплекс обліку видобутку та відвантаження руди — розробка й супровід у виробничому режимі."
+      - "Автоматизація змінної видачі витратних матеріалів і харчування за шкідливість."
+      - "Супровід систем підготовки виробництва та бюджетних процесів; синхронізація таблиць Firebird."
+    en:
+      - "A system for ore extraction and shipment accounting, developed and maintained in production."
+      - "Automated per-shift distribution of consumables and hazard-pay meals."
+      - "Maintained production-preparation and budgeting systems; implemented Firebird table synchronization."
+- id: ossystem
+  company: {uk: "ОССистем", en: "OSSystem"}
+  title: {uk: "Програміст", en: "Developer"}
+  start: "2012-11"
+  end: "2013-04"
+  city: {uk: "Одеса", en: "Odesa"}
+  tags: [full, delphi, desktop, enterprise, insurance, oracle, sql, reporting]
+  bullets:
+    uk:
+      - "Розробка під систему автоматизації страхування Master INSURANCE: трирівнева архітектура з ORM на Oracle, звіти на XL Report."
+      - "Супровід «Експо» — обліку руху автотранспорту і контейнерів територією портів."
+    en:
+      - "Development on Master INSURANCE, an insurance automation system: three-tier architecture with ORM over Oracle, reports in XL Report."
+      - "Maintained Expo, a system tracking vehicle and container movement across port territories."
