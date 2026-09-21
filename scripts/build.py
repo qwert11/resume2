@@ -19,7 +19,7 @@ TEMPLATES = ROOT / 'templates'
 ASSETS = ROOT / 'assets'
 OUTPUT = ROOT / 'output'
 
-TARGET_IDS = ['full', 'dotnet', 'delphi', 'web']
+TARGET_IDS = ['full', 'dotnet', 'delphi', 'web', 'ai']
 LANGS = ['en', 'uk']
 
 FONT_CANDIDATES = [
@@ -76,6 +76,11 @@ def filter_groups(groups, tags, full_mode):
     return out
 
 
+def by_profile(items, target_id):
+    """Projects whose `primary` names this profile come first; order inside each half is kept."""
+    return sorted(items, key=lambda x: 0 if target_id in (x.get('primary') or []) else 1)
+
+
 def period_text(item, lang, present_word):
     end = item['end']
     if end == 'present':
@@ -125,6 +130,7 @@ def doc_sections(bundle, lang):
             'kind': e.get('kind', 'degree'),
         } for e in bundle['education']],
         'languages': [(t(l['name'], lang), t(l['level'], lang)) for l in bundle['languages']],
+        'side_projects': [(t(x['name'], lang), t(x['note'], lang), x['link']) for x in bundle['side_projects']],
     }
 
 
@@ -185,6 +191,11 @@ def build_docx(path, s):
     doc.add_heading(s['labels']['education'], level=1)
     for e in s['education']:
         doc.add_paragraph(f"{e['specialty']} — {e['institution']} ({e['period']})", style='List Bullet')
+
+    if s['side_projects']:
+        doc.add_heading(s['labels']['side'], level=1)
+        for name, note, link in s['side_projects']:
+            doc.add_paragraph(f'{name} — {note} — {link}', style='List Bullet')
 
     doc.add_heading(s['labels']['languages'], level=1)
     for name, level in s['languages']:
@@ -295,6 +306,12 @@ def build_pdf(path, s):
     for e in s['education']:
         text_block(f"• {e['specialty']} — {e['institution']} ({e['period']})", reg, 9.5, 13)
 
+    if s['side_projects']:
+        heading(s['labels']['side'])
+        for name, note, link in s['side_projects']:
+            text_block(f'• {name} — {note}', reg, 9.5, 13)
+            text_block(link, reg, 9, 12, indent=10, color=(0.4, 0.44, 0.43))
+
     heading(s['labels']['languages'])
     for name, level in s['languages']:
         text_block(f'• {name} — {level}', reg, 9.5, 13)
@@ -314,6 +331,7 @@ def build_target(target_id, env):
     achievements = load_yaml(DATA / 'achievements.yaml')['achievements']
     domain = load_yaml(DATA / 'domain.yaml')['domain']
     languages = load_yaml(DATA / 'languages.yaml')['languages']
+    side_projects = load_yaml(DATA / 'side_projects.yaml')['side_projects']
     target = load_yaml(TARGETS / f'{target_id}.yaml')
 
     full_mode = target_id == 'full'
@@ -326,11 +344,12 @@ def build_target(target_id, env):
         'metrics': filter_items(profile['metrics'], tags, full_mode)[:4],
         'achievements': filter_items(achievements, tags, full_mode)[:5],
         'skill_groups': filter_groups(skill_groups, tags, full_mode),
-        'projects': filter_items(projects, tags, full_mode)[:6],
+        'projects': by_profile(filter_items(projects, tags, full_mode), target_id)[:6],
         'experiences': filter_items(experiences, tags, full_mode),
         'domain': filter_items(domain, tags, full_mode),
         'education': education,
         'languages': languages,
+        'side_projects': filter_items(side_projects, tags, full_mode),
     }
 
     out_dir = OUTPUT / target_id
@@ -361,6 +380,7 @@ def build_target(target_id, env):
         domain=bundle['domain'],
         education=bundle['education'],
         languages=bundle['languages'],
+        side_projects=[dict(x, name=norm(x['name']), note=norm(x['note'])) for x in bundle['side_projects']],
         root_prefix=prefix,
         assets_prefix=prefix,
         downloads_prefix='./',

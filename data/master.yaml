@@ -6,6 +6,7 @@ profile:
     dotnet: {uk: "Senior .NET інженер", en: "Senior .NET Engineer"}
     delphi: {uk: "Senior Delphi інженер · модернізація legacy", en: "Senior Delphi Engineer · Legacy Modernization"}
     web: {uk: "Full Stack інженер · .NET та Angular", en: "Full Stack Engineer · .NET & Angular"}
+    ai: {uk: "AI / Python інженер", en: "AI / Python Engineer"}
   summary:
     full:
       uk: "Десять років усередині ядра однієї роздрібної мережі: торгова система на Delphi, якою щодня працюють магазини, і сервіси на ASP.NET Core, що поступово забирають її функції. Доступи для 2000+ користувачів, фіскальні та EDI-інтеграції, міграція клієнта з Delphi 6 на Delphi 12."
@@ -19,6 +20,9 @@ profile:
     web:
       uk: "Full stack інженер: ASP.NET Core та Web API на бекенді, Angular 13 з Kendo UI і Razor на фронті, real-time через SignalR. Внутрішні системи для роздрібної мережі — доступи, аудит, звітність, інтеграції."
       en: "Full stack engineer: ASP.NET Core and Web API on the back end, Angular 13 with Kendo UI and Razor on the front, real-time over SignalR. Internal systems for a retail network: access control, audit, reporting, integrations."
+    ai:
+      uk: "Десять років промислової розробки — і власний трек у Python та ML. Побудував голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD і потокова обробка — 55 модулів, 15 500 рядків Python, з регресійними замірами затримки та RTF. Поряд — конвеєри даних на SQLAlchemy і Playwright та щоденна робота з ІІ-агентами."
+      en: "Ten years of production engineering plus a personal track in Python and ML. Built a real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD and streaming — 55 modules, 15,500 lines of Python, with regression measurements of latency and RTF. Alongside it: data pipelines on SQLAlchemy and Playwright, and daily work with AI agents."
   contacts:
     - {id: email, label: "xetr11@gmail.com", href: "mailto:xetr11@gmail.com"}
     - {id: telegram, label: "t.me/xetr_11", href: "https://t.me/xetr_11"}
@@ -27,7 +31,7 @@ profile:
     - value: "10"
       unit: {uk: "років", en: "years"}
       label: {uk: "у виробничих системах роздрібу, з 2016 і донині", en: "in production retail systems, 2016 to now"}
-      tags: [full, dotnet, delphi, web]
+      tags: [full, dotnet, delphi, web, ai]
     - value: "2 000+"
       unit: {uk: "", en: ""}
       label: {uk: "користувачів у системі доступів, яку я побудував", en: "users on the access system I built"}
@@ -48,6 +52,18 @@ profile:
       unit: {uk: "", en: ""}
       label: {uk: "основна платформа сервісів; ще 3.1, 5 і 6 у супроводі", en: "the main service platform; 3.1, 5 and 6 also in support"}
       tags: [dotnet, web]
+    - value: "15 500"
+      unit: {uk: "рядків", en: "lines"}
+      label: {uk: "Python у голосовому пайплайні: 55 модулів, STT і діаризація", en: "of Python in the speech pipeline: 55 modules, STT and diarization"}
+      tags: [ai, python]
+    - value: "27"
+      unit: {uk: "", en: ""}
+      label: {uk: "репозиторіїв за 2026 рік: фриланс і власні проєкти", en: "repositories in 2026: freelance and personal projects"}
+      tags: [ai, python, web]
+    - value: "6"
+      unit: {uk: "джерел", en: "sources"}
+      label: {uk: "у конвеєрі збору оголошень: OLX, ЛУН, Rieltor, Metrazh, Telegram, FB", en: "in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB"}
+      tags: [ai, python]
   sections:
     stack: {uk: "Стек", en: "Stack"}
     strengths: {uk: "Що я зробив", en: "What I delivered"}
@@ -57,6 +73,7 @@ profile:
     education: {uk: "Освіта та сертифікати", en: "Education and certificates"}
     domain: {uk: "Предметна область", en: "Domain knowledge"}
     languages: {uk: "Мови", en: "Languages"}
+    side: {uk: "Код на GitHub", en: "Code on GitHub"}
   ui:
     auto: {uk: "Авто", en: "Auto"}
     light: {uk: "Світла", en: "Light"}
@@ -68,6 +85,7 @@ profile:
     dotnet: {uk: ".NET", en: ".NET"}
     delphi: {uk: "Delphi", en: "Delphi"}
     web: {uk: "Web", en: "Web"}
+    ai: {uk: "AI / Python", en: "AI / Python"}
     ua: {uk: "Укр", en: "UA"}
     en: {uk: "Анг", en: "EN"}
     details_anchor: {uk: "Деталі нижче", en: "Details below"}

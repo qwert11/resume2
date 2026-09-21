@@ -31,8 +31,20 @@ Ten years inside the core systems of one retail network: a Delphi trading platfo
 - **Quality and delivery:** xUnit / NUnit, NSubstitute / Moq, AutoFixture, FluentAssertions, SonarQube, Jenkins, Docker, Serilog / NLog, Elastic APM, Git / приватний NuGet
 - **Desktop:** Delphi 6 → 12 / 13, Object Pascal, VCL, DevExpress, FastReport, RX Library, Indy, NativeExcel / NativeXml, ADO / OLE DB
 - **Engineering practice:** Legacy modernization, Modular monolith, Three-tier architecture, Integration design, Production ownership
+- **Python:** Python 3.11, FastAPI, SQLAlchemy 2, Alembic, Pydantic, Typer CLI, Playwright, selectolax, NumPy, pytest, ruff / black, Jinja2
+- **Speech and ML:** faster-whisper (CUDA), pyannote.audio, VAD, Speaker diarization, Quality evaluation: RTF, latency, Streaming audio pipelines, WASAPI / sounddevice, PyTorch / GPU
+- **Working with AI agents:** Claude Code, MCP-сервери, Custom subagents and hooks, Agent tooling (CDP), Prompt engineering
+- **JS / TS ecosystem:** Next.js 16, React 19, NestJS, Prisma, Expo / React Native, Tailwind CSS, Zustand / TanStack Query, MapLibre, Vite, Node.js
 
 ## Key projects
+
+### Real-time speech pipeline (ORK) · 2026
+*Author*
+
+Real-time speech recognition from calls: parallel microphone and system-audio capture, VAD-based segmentation, faster-whisper on GPU, pyannote diarization with incremental clustering, translation. A separate regression suite — RTF, latency under load, noise robustness — shows exactly where quality is lost.
+
+`Python 3.11` `faster-whisper` `pyannote.audio` `CUDA` `FastAPI` `NumPy` `WASAPI`
+
 
 ### Trading client migration: Delphi 6 to Delphi 12 · 2024 — 2026
 *Migration lead*
@@ -60,31 +72,34 @@ Centralized permissions and authentication for 2,000+ people in the network: rol
 `ASP.NET Core` `C#` `EF Core` `MS SQL` `OIDC` `ADFS` `Angular`
 
 
-### Store Journals · 2021 — 2023
-*Developer*
+### Real-estate data pipeline · 2026
+*Author*
 
-Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting. The most code-intensive of the web systems.
+A listings parser with pagination, normalization and price history: SQLAlchemy 2 models with Alembic migrations over PostgreSQL, two transports — plain HTTP and Playwright for protected pages — a Typer CLI, pydantic-settings config and pytest coverage.
 
-`ASP.NET Core` `Angular 13` `Kendo UI` `EF Core` `MS SQL` `SignalR`
-
-
-### Recyclables and returnable packaging · 2019 — 2024
-*Developer*
-
-Web system for recyclables and pooled packaging with document flow: M.E.Doc integration, supplier exchange over EDI, accounting reports.
-
-`ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
+`Python` `SQLAlchemy 2` `Alembic` `PostgreSQL` `Playwright` `selectolax` `Typer` `pytest`
 
 
-### SMS Messenger · 2020 — 2023
-*Architect and developer*
+### Legacy system map · 2026
+*Author*
 
-The network's SMS notification platform: an in-house gateway to carriers over SMPP and to modems over GSM API, campaign queues, an API for internal systems.
+A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map.
 
-`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
+`Python` `Next.js` `TypeScript` `PostgreSQL`
 
 
 ## Experience
+
+### Freelance and personal projects — AI / Python and Full Stack Developer
+2026-03 — present · Dnipro · remote · Python, ML and full stack work
+
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
+- A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
+- A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
+- A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations.
+- Client work: NestJS with Prisma and PostgreSQL, Next.js 16 with React 19, a mobile app on Expo with MapLibre maps.
+- Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling.
 
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network

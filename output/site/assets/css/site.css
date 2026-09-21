@@ -207,6 +207,15 @@ p{margin:0}
   letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
   border:1px solid var(--line);border-radius:4px;padding:1px 5px;vertical-align:2px;font-weight:400;
 }
+.side{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.side li{display:flex;flex-direction:column;gap:2px}
+.side a{
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink);
+  text-decoration:none;border-bottom:1px solid var(--line);align-self:flex-start;
+}
+.side a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.side span{font-size:13px;line-height:1.45;color:var(--muted)}
+
 .langs li{font-size:14px;color:var(--muted)}
 .langs strong{color:var(--ink);font-weight:600;margin-right:6px}
 

@@ -50,6 +50,7 @@
     setText('[data-i18n-nav-dotnet]', tr(ui.dotnet, lang));
     setText('[data-i18n-nav-delphi]', tr(ui.delphi, lang));
     setText('[data-i18n-nav-web]', tr(ui.web, lang));
+    setText('[data-i18n-nav-ai]', tr(ui.ai, lang));
     setText('[data-i18n-profiles-hint]', tr(ui.profiles_hint, lang));
     setText('[data-i18n-present]', tr(ui.present, lang));
 
@@ -61,6 +62,7 @@
     setText('[data-i18n-section-details]', tr(sec.details, lang));
     setText('[data-i18n-section-domain]', tr(sec.domain, lang));
     setText('[data-i18n-section-languages]', tr(sec.languages, lang));
+    setText('[data-i18n-section-side]', tr(sec.side, lang));
 
     document.querySelectorAll('[data-uk][data-en]').forEach(function (el) {
       el.textContent = lang === 'uk' ? el.dataset.uk : el.dataset.en;

@@ -30,26 +30,10 @@ Senior .NET інженер: ASP.NET Core та Web API на .NET 7, EF Core і T-
 - **Доступи:** OpenID Connect, OAuth2, JWT Bearer, ADFS, Kerberos / Negotiate, Active Directory, RBAC
 - **Якість і постачання:** xUnit / NUnit, NSubstitute / Moq, AutoFixture, FluentAssertions, SonarQube, Jenkins, Docker, Serilog / NLog, Elastic APM, Git / приватний NuGet
 - **Підходи:** Модернізація legacy, Модульний моноліт, Трирівнева архітектура, Проєктування інтеграцій, Робота в проді 24/7
+- **Робота з ІІ-агентами:** Claude Code, MCP-сервери, Власні субагенти та хуки, Інструменти для агентів (CDP)
+- **JS / TS екосистема:** Next.js 16, React 19, NestJS, Prisma, Expo / React Native, Tailwind CSS, Zustand / TanStack Query, MapLibre, Vite, Node.js
 
 ## Ключові проєкти
-
-### Міграція торгового клієнта: Delphi 6 → Delphi 12 · 2024 — 2026
-*Технічний лід міграції*
-
-Переведення клієнта торгової системи (955 модулів, 828 форм) на сучасний компілятор із переробкою ядра. Написав окремий інструмент, що звіряє форми та мапінг таблиць між старою і новою версіями — міграція йде без зупинки магазинів.
-
-`Delphi 12/13` `Object Pascal` `VCL` `MS SQL` `DevExpress` `FastReport`
-
-https://github.com/qwert11/d6_d13_dbmapping_checker
-
-
-### Фіскальний контур: еАкциз, АЕД, митниця · 2019 — 2026
-*Розробник напряму*
-
-Наскрізна підтримка змін законодавства в торговій системі: сканування акцизних марок, електронні акцизні документи, коригування податкових накладних, УКТЗЕД, митні спрощення, ставка ПДВ 14 %.
-
-`Delphi` `T-SQL` `MS SQL` `EDI` `M.E.Doc`
-
 
 ### UAM — керування доступом · 2020 — 2022
 *Розробник*
@@ -83,7 +67,34 @@ https://github.com/qwert11/d6_d13_dbmapping_checker
 `ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
 
 
+### Конвеєр збору даних нерухомості · 2026
+*Автор*
+
+Парсер оголошень із пагінацією, нормалізацією та історією цін: моделі на SQLAlchemy 2 з міграціями Alembic поверх PostgreSQL, два транспорти — HTTP і Playwright для сторінок із захистом, CLI на Typer, конфіг через pydantic-settings, тести pytest.
+
+`Python` `SQLAlchemy 2` `Alembic` `PostgreSQL` `Playwright` `selectolax` `Typer` `pytest`
+
+
+### Карта legacy-системи · 2026
+*Автор*
+
+Інструмент для розбору торгової системи перед міграцією: Python парсить .dfm і .pas, витягує виклики процедур і зв'язки форм, Next.js показує це картою з анотаціями та коментарями по вузлах.
+
+`Python` `Next.js` `TypeScript` `PostgreSQL`
+
+
 ## Досвід
+
+### Фриланс і власні проєкти — AI / Python та full stack розробник
+2026-03 — донині · Дніпро · віддалено · Python, ML та фулстек-розробка
+
+- Голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD, потоковий захват WASAPI — 55 модулів, 15 500 рядків Python.
+- Для нього ж — набір регресійних замірів: RTF, затримка під навантаженням, стійкість до шуму, межі якості; рішення приймаю за цифрами, а не на слух.
+- Парсер нерухомості на Python: SQLAlchemy 2 і Alembic поверх PostgreSQL, Playwright та selectolax, CLI на Typer, pytest і ruff.
+- Конвеєр збору оголошень із шести джерел із геокодуванням, дедублікацією і публікацією каталогу через GitHub Actions.
+- Аналізатор legacy-коду: Python розбирає .dfm і .pas та звіряє виклики процедур, Next.js показує карту системи з анотаціями.
+- Клієнтські проєкти: NestJS з Prisma і PostgreSQL, Next.js 16 з React 19, мобільний застосунок на Expo з картами MapLibre.
+- Щоденна робота з ІІ-агентами: MCP-сервери, власні субагенти та хуки, свій CDP-інспектор браузера як інструмент для агентів.
 
 ### АТБ-Маркет — Провідний прикладний програміст
 2016-06 — донині · Дніпро · найбільша продуктова мережа України

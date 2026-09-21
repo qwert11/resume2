@@ -49,6 +49,14 @@ End-to-end delivery of legislative change inside the trading system: excise stam
 `Delphi` `T-SQL` `MS SQL` `EDI` `M.E.Doc`
 
 
+### Legacy system map · 2026
+*Author*
+
+A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map.
+
+`Python` `Next.js` `TypeScript` `PostgreSQL`
+
+
 ### UAM — access management · 2020 — 2022
 *Developer*
 
@@ -73,15 +81,18 @@ Web system for recyclables and pooled packaging with document flow: M.E.Doc inte
 `ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
 
 
-### SMS Messenger · 2020 — 2023
-*Architect and developer*
-
-The network's SMS notification platform: an in-house gateway to carriers over SMPP and to modems over GSM API, campaign queues, an API for internal systems.
-
-`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
-
-
 ## Experience
+
+### Freelance and personal projects — AI / Python and Full Stack Developer
+2026-03 — present · Dnipro · remote · Python, ML and full stack work
+
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
+- A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
+- A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
+- A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations.
+- Client work: NestJS with Prisma and PostgreSQL, Next.js 16 with React 19, a mobile app on Expo with MapLibre maps.
+- Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling.
 
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network

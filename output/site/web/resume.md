@@ -19,6 +19,7 @@ Full stack engineer: ASP.NET Core and Web API on the back end, Angular 13 with K
 - Architected and built the network's SMS notification platform: SMPP and GSM API, .NET Web API and MS SQL, designed for peak-volume campaigns.
 - Deliver fiscal-law changes end to end across the systems: excise stamps and AED, UKTZED codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores.
 - Built the internal web systems stores work with: journals and audit, recyclables with M.E.Doc integration, a support portal, coupons and reporting.
+- Wrote its quality regression suite — RTF, latency, noise robustness, accuracy ceilings — and drive decisions from the numbers rather than impressions.
 
 ## Stack
 
@@ -29,15 +30,17 @@ Full stack engineer: ASP.NET Core and Web API on the back end, Angular 13 with K
 - **Access and security:** OpenID Connect, OAuth2, JWT Bearer, ADFS, Kerberos / Negotiate, Active Directory, RBAC
 - **Quality and delivery:** xUnit / NUnit, NSubstitute / Moq, AutoFixture, FluentAssertions, SonarQube, Jenkins, Docker, Serilog / NLog, Elastic APM, Git / приватний NuGet
 - **Engineering practice:** Legacy modernization, Modular monolith, Three-tier architecture, Integration design, Production ownership
+- **Working with AI agents:** Claude Code, MCP-сервери, Custom subagents and hooks, Agent tooling (CDP)
+- **JS / TS ecosystem:** Next.js 16, React 19, NestJS, Prisma, Expo / React Native, Tailwind CSS, Zustand / TanStack Query, MapLibre, Vite, Node.js
 
 ## Key projects
 
-### Fiscal workflows: excise stamps, AED, customs · 2019 — 2026
-*Owner of the workstream*
+### AM Mobility — web and mobile app · 2026
+*Full stack developer*
 
-End-to-end delivery of legislative change inside the trading system: excise stamp scanning, electronic excise documents, tax invoice adjustments, UKTZED codes, customs simplifications, the 14% VAT rate.
+Client project: a NestJS back end with Swagger and PostgreSQL, a Next.js web app, and an Expo / React Native mobile app with MapLibre maps, geolocation and offline state.
 
-`Delphi` `T-SQL` `MS SQL` `EDI` `M.E.Doc`
+`NestJS` `Next.js` `Expo` `React Native` `PostgreSQL` `MapLibre` `TanStack Query`
 
 
 ### UAM — access management · 2020 — 2022
@@ -56,22 +59,6 @@ Journals and audit platform for the network's stores: in-store entry, inspection
 `ASP.NET Core` `Angular 13` `Kendo UI` `EF Core` `MS SQL` `SignalR`
 
 
-### Recyclables and returnable packaging · 2019 — 2024
-*Developer*
-
-Web system for recyclables and pooled packaging with document flow: M.E.Doc integration, supplier exchange over EDI, accounting reports.
-
-`ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
-
-
-### SMS Messenger · 2020 — 2023
-*Architect and developer*
-
-The network's SMS notification platform: an in-house gateway to carriers over SMPP and to modems over GSM API, campaign queues, an API for internal systems.
-
-`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
-
-
 ### API Gateway and reporting service · 2018 — 2020
 *Developer*
 
@@ -80,7 +67,34 @@ A gateway for the network's internal services and a reporting service over MS SQ
 `.NET Core` `Web API` `MS SQL` `SSRS` `GemBox.Spreadsheet`
 
 
+### Real-estate data pipeline · 2026
+*Author*
+
+A listings parser with pagination, normalization and price history: SQLAlchemy 2 models with Alembic migrations over PostgreSQL, two transports — plain HTTP and Playwright for protected pages — a Typer CLI, pydantic-settings config and pytest coverage.
+
+`Python` `SQLAlchemy 2` `Alembic` `PostgreSQL` `Playwright` `selectolax` `Typer` `pytest`
+
+
+### Legacy system map · 2026
+*Author*
+
+A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map.
+
+`Python` `Next.js` `TypeScript` `PostgreSQL`
+
+
 ## Experience
+
+### Freelance and personal projects — AI / Python and Full Stack Developer
+2026-03 — present · Dnipro · remote · Python, ML and full stack work
+
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
+- A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
+- A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
+- A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations.
+- Client work: NestJS with Prisma and PostgreSQL, Next.js 16 with React 19, a mobile app on Expo with MapLibre maps.
+- Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling.
 
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network

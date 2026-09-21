@@ -17,14 +17,14 @@ groups:
       - {name: "Flurl.Http", tags: [dotnet, backend]}
   - id: data
     label: {uk: "Дані", en: "Data"}
-    tags: [full, dotnet, delphi, web, sql]
+    tags: [full, dotnet, delphi, web, sql, data]
     items:
-      - {name: "MS SQL Server", tags: [dotnet, delphi, web, sql]}
-      - {name: "T-SQL", tags: [dotnet, delphi, web, sql]}
+      - {name: "MS SQL Server", tags: [dotnet, delphi, web, sql, data]}
+      - {name: "T-SQL", tags: [dotnet, delphi, web, sql, data]}
       - {name: "EF Core 7", tags: [dotnet, web, sql]}
       - {name: "ADO.NET", tags: [dotnet, sql]}
       - {name: "Oracle", tags: [dotnet, delphi, sql]}
-      - {name: "PostgreSQL", tags: [dotnet, web, sql]}
+      - {name: "PostgreSQL", tags: [dotnet, web, sql, data]}
       - {name: "Firebird", tags: [delphi, sql]}
       - {name: "SSIS", tags: [dotnet, sql]}
       - {name: "SSRS", tags: [dotnet, sql]}
@@ -102,3 +102,54 @@ groups:
       - {name: {uk: "Трирівнева архітектура", en: "Three-tier architecture"}, tags: [dotnet, delphi, architecture]}
       - {name: {uk: "Проєктування інтеграцій", en: "Integration design"}, tags: [dotnet, delphi, architecture]}
       - {name: {uk: "Робота в проді 24/7", en: "Production ownership"}, tags: [dotnet, delphi, web, architecture]}
+  - id: python
+    label: {uk: "Python", en: "Python"}
+    tags: [full, ai, python, data]
+    items:
+      - {name: "Python 3.11", tags: [ai, python, data]}
+      - {name: "FastAPI", tags: [ai, python]}
+      - {name: "SQLAlchemy 2", tags: [ai, python, data]}
+      - {name: "Alembic", tags: [ai, python, data]}
+      - {name: "Pydantic", tags: [ai, python]}
+      - {name: "Typer CLI", tags: [ai, python]}
+      - {name: "Playwright", tags: [ai, python, data]}
+      - {name: "selectolax", tags: [ai, python, data]}
+      - {name: "NumPy", tags: [ai, python]}
+      - {name: "pytest", tags: [ai, python, quality]}
+      - {name: "ruff / black", tags: [ai, python, quality]}
+      - {name: "Jinja2", tags: [ai, python]}
+  - id: ai
+    label: {uk: "Мова та ML", en: "Speech and ML"}
+    tags: [full, ai]
+    items:
+      - {name: "faster-whisper (CUDA)", tags: [ai]}
+      - {name: "pyannote.audio", tags: [ai]}
+      - {name: "VAD", tags: [ai]}
+      - {name: {uk: "Діаризація мовців", en: "Speaker diarization"}, tags: [ai]}
+      - {name: {uk: "Оцінка якості: RTF, затримка", en: "Quality evaluation: RTF, latency"}, tags: [ai]}
+      - {name: {uk: "Потокова обробка аудіо", en: "Streaming audio pipelines"}, tags: [ai]}
+      - {name: "WASAPI / sounddevice", tags: [ai]}
+      - {name: "PyTorch / GPU", tags: [ai]}
+  - id: agents
+    label: {uk: "Робота з ІІ-агентами", en: "Working with AI agents"}
+    tags: [full, ai, python, web]
+    items:
+      - {name: "Claude Code", tags: [ai, python, web]}
+      - {name: "MCP-сервери", tags: [ai, python, web]}
+      - {name: {uk: "Власні субагенти та хуки", en: "Custom subagents and hooks"}, tags: [ai, web]}
+      - {name: {uk: "Інструменти для агентів (CDP)", en: "Agent tooling (CDP)"}, tags: [ai, web]}
+      - {name: {uk: "Промпт-інженерія", en: "Prompt engineering"}, tags: [ai]}
+  - id: jsstack
+    label: {uk: "JS / TS екосистема", en: "JS / TS ecosystem"}
+    tags: [full, web, ai, frontend]
+    items:
+      - {name: "Next.js 16", tags: [web, frontend, ai]}
+      - {name: "React 19", tags: [web, frontend, ai]}
+      - {name: "NestJS", tags: [web, backend, ai]}
+      - {name: "Prisma", tags: [web, backend, ai]}
+      - {name: "Expo / React Native", tags: [web]}
+      - {name: "Tailwind CSS", tags: [web, frontend]}
+      - {name: "Zustand / TanStack Query", tags: [web, frontend]}
+      - {name: "MapLibre", tags: [web]}
+      - {name: "Vite", tags: [web, frontend]}
+      - {name: "Node.js", tags: [web, backend, ai]}

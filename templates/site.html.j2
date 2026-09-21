@@ -54,6 +54,7 @@
       <a href="{{ root_prefix }}dotnet/index.html" class="{% if target.id=='dotnet' %}active{% endif %}" data-i18n-nav-dotnet></a>
       <a href="{{ root_prefix }}delphi/index.html" class="{% if target.id=='delphi' %}active{% endif %}" data-i18n-nav-delphi></a>
       <a href="{{ root_prefix }}web/index.html" class="{% if target.id=='web' %}active{% endif %}" data-i18n-nav-web></a>
+      <a href="{{ root_prefix }}ai/index.html" class="{% if target.id=='ai' %}active{% endif %}" data-i18n-nav-ai></a>
     </nav>
   </div>
 </header>
@@ -149,6 +150,20 @@
           <dd data-uk="{{ d.note.uk }}" data-en="{{ d.note.en }}">{{ d.note.en }}</dd>
           {%- endfor %}
         </dl>
+      </section>
+      {%- endif %}
+
+      {%- if side_projects %}
+      <section class="block">
+        <h2 data-i18n-section-side></h2>
+        <ul class="side">
+          {%- for x in side_projects %}
+          <li>
+            <a href="{{ x.link }}" target="_blank" rel="noopener" data-uk="{{ x.name.uk }}" data-en="{{ x.name.en }}">{{ x.name.en }}</a>
+            <span data-uk="{{ x.note.uk }}" data-en="{{ x.note.en }}">{{ x.note.en }}</span>
+          </li>
+          {%- endfor %}
+        </ul>
       </section>
       {%- endif %}
 

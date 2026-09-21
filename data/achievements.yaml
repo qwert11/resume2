@@ -19,3 +19,15 @@ achievements:
       uk: "Побудував внутрішні веб-системи для магазинів: журнали та аудит, вторсировина з інтеграцією в M.E.Doc, портал підтримки, купони, звітність."
       en: "Built the internal web systems stores work with: journals and audit, recyclables with M.E.Doc integration, a support portal, coupons and reporting."
     tags: [full, dotnet, web, retail, reporting, warehouse, enterprise, fullstack]
+  - text:
+      uk: "Побудував голосовий пайплайн реального часу на Python: faster-whisper на GPU, діаризація pyannote, VAD, потоковий захват — 55 модулів і 15 500 рядків коду."
+      en: "Built a real-time speech pipeline in Python: faster-whisper on GPU, pyannote diarization, VAD and streaming capture — 55 modules and 15,500 lines of code."
+    tags: [ai, python, data, architecture]
+  - text:
+      uk: "Зробив для нього регресійні заміри якості — RTF, затримка, стійкість до шуму, межі точності — і веду рішення за цифрами, а не на слух."
+      en: "Wrote its quality regression suite — RTF, latency, noise robustness, accuracy ceilings — and drive decisions from the numbers rather than impressions."
+    tags: [ai, python, quality]
+  - text:
+      uk: "Зібрав конвеєри даних на Python: SQLAlchemy 2 і Alembic поверх PostgreSQL, Playwright для захищених сторінок, шість джерел оголошень в одному каталозі."
+      en: "Built Python data pipelines: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright for protected pages, six listing sources merged into one catalog."
+    tags: [ai, python, data, integration]

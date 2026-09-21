@@ -31,8 +31,20 @@ xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Дніпро, Укра
 - **Якість і постачання:** xUnit / NUnit, NSubstitute / Moq, AutoFixture, FluentAssertions, SonarQube, Jenkins, Docker, Serilog / NLog, Elastic APM, Git / приватний NuGet
 - **Десктоп:** Delphi 6 → 12 / 13, Object Pascal, VCL, DevExpress, FastReport, RX Library, Indy, NativeExcel / NativeXml, ADO / OLE DB
 - **Підходи:** Модернізація legacy, Модульний моноліт, Трирівнева архітектура, Проєктування інтеграцій, Робота в проді 24/7
+- **Python:** Python 3.11, FastAPI, SQLAlchemy 2, Alembic, Pydantic, Typer CLI, Playwright, selectolax, NumPy, pytest, ruff / black, Jinja2
+- **Мова та ML:** faster-whisper (CUDA), pyannote.audio, VAD, Діаризація мовців, Оцінка якості: RTF, затримка, Потокова обробка аудіо, WASAPI / sounddevice, PyTorch / GPU
+- **Робота з ІІ-агентами:** Claude Code, MCP-сервери, Власні субагенти та хуки, Інструменти для агентів (CDP), Промпт-інженерія
+- **JS / TS екосистема:** Next.js 16, React 19, NestJS, Prisma, Expo / React Native, Tailwind CSS, Zustand / TanStack Query, MapLibre, Vite, Node.js
 
 ## Ключові проєкти
+
+### Голосовий пайплайн реального часу (ORK) · 2026
+*Автор*
+
+Розпізнавання мови зі звінків у реальному часі: паралельний захват мікрофона і системного звуку, нарізка по паузах через VAD, faster-whisper на GPU, діаризація pyannote з інкрементальною кластеризацією, переклад. Окремий набір регресійних замірів — RTF, затримка під навантаженням, стійкість до шуму — показує, де саме втрачається якість.
+
+`Python 3.11` `faster-whisper` `pyannote.audio` `CUDA` `FastAPI` `NumPy` `WASAPI`
+
 
 ### Міграція торгового клієнта: Delphi 6 → Delphi 12 · 2024 — 2026
 *Технічний лід міграції*
@@ -60,31 +72,34 @@ https://github.com/qwert11/d6_d13_dbmapping_checker
 `ASP.NET Core` `C#` `EF Core` `MS SQL` `OIDC` `ADFS` `Angular`
 
 
-### Журнали магазину · 2021 — 2023
-*Розробник*
+### Конвеєр збору даних нерухомості · 2026
+*Автор*
 
-Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах. Найінтенсивніший проєкт за обсягом коду серед веб-систем.
+Парсер оголошень із пагінацією, нормалізацією та історією цін: моделі на SQLAlchemy 2 з міграціями Alembic поверх PostgreSQL, два транспорти — HTTP і Playwright для сторінок із захистом, CLI на Typer, конфіг через pydantic-settings, тести pytest.
 
-`ASP.NET Core` `Angular 13` `Kendo UI` `EF Core` `MS SQL` `SignalR`
-
-
-### Вторсировина та оборотна тара · 2019 — 2024
-*Розробник*
-
-Веб-система обліку вторсировини й пулінгової тари з документообігом: інтеграція з M.E.Doc, обмін з постачальниками через EDI, звітність для бухгалтерії.
-
-`ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
+`Python` `SQLAlchemy 2` `Alembic` `PostgreSQL` `Playwright` `selectolax` `Typer` `pytest`
 
 
-### SMS Messenger · 2020 — 2023
-*Архітектор і розробник*
+### Карта legacy-системи · 2026
+*Автор*
 
-Платформа SMS-сповіщень мережі: власний шлюз до операторів через SMPP і до модемів через GSM API, черги розсилок, API для внутрішніх систем.
+Інструмент для розбору торгової системи перед міграцією: Python парсить .dfm і .pas, витягує виклики процедур і зв'язки форм, Next.js показує це картою з анотаціями та коментарями по вузлах.
 
-`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
+`Python` `Next.js` `TypeScript` `PostgreSQL`
 
 
 ## Досвід
+
+### Фриланс і власні проєкти — AI / Python та full stack розробник
+2026-03 — донині · Дніпро · віддалено · Python, ML та фулстек-розробка
+
+- Голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD, потоковий захват WASAPI — 55 модулів, 15 500 рядків Python.
+- Для нього ж — набір регресійних замірів: RTF, затримка під навантаженням, стійкість до шуму, межі якості; рішення приймаю за цифрами, а не на слух.
+- Парсер нерухомості на Python: SQLAlchemy 2 і Alembic поверх PostgreSQL, Playwright та selectolax, CLI на Typer, pytest і ruff.
+- Конвеєр збору оголошень із шести джерел із геокодуванням, дедублікацією і публікацією каталогу через GitHub Actions.
+- Аналізатор legacy-коду: Python розбирає .dfm і .pas та звіряє виклики процедур, Next.js показує карту системи з анотаціями.
+- Клієнтські проєкти: NestJS з Prisma і PostgreSQL, Next.js 16 з React 19, мобільний застосунок на Expo з картами MapLibre.
+- Щоденна робота з ІІ-агентами: MCP-сервери, власні субагенти та хуки, свій CDP-інспектор браузера як інструмент для агентів.
 
 ### АТБ-Маркет — Провідний прикладний програміст
 2016-06 — донині · Дніпро · найбільша продуктова мережа України
