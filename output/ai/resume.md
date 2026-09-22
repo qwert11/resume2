@@ -10,6 +10,7 @@ Ten years of production engineering plus a personal track in Python and ML. Buil
 
 - 10 years — in production retail systems, 2016 to now
 - 33 — internal systems of the network carry my code
+- 27 — repositories in 2026: freelance and personal projects
 - 6 sources — in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB
 
 ## What I delivered

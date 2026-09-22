@@ -48,6 +48,10 @@ profile:
       unit: {uk: "", en: ""}
       label: {uk: "основна платформа внутрішніх сервісів мережі", en: "the main platform of the network's internal services"}
       tags: [dotnet, web]
+    - value: "27"
+      unit: {uk: "", en: ""}
+      label: {uk: "репозиторіїв за 2026 рік: фриланс і власні проєкти", en: "repositories in 2026: freelance and personal projects"}
+      tags: [ai, python, web]
     - value: "6"
       unit: {uk: "джерел", en: "sources"}
       label: {uk: "у конвеєрі збору оголошень: OLX, ЛУН, Rieltor, Metrazh, Telegram, FB", en: "in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB"}
