@@ -16,38 +16,8 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-main">
-        <p class="eyebrow" data-i18n-target-title>{{ title_text }}</p>
-        <h1 data-i18n-name>{{ name_text }}</h1>
-        <p class="lead" data-i18n-summary>{{ summary_text }}</p>
-        <ul class="contacts">
-          {%- for c in contacts %}
-          <li><a href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>{{ c.label }}</a></li>
-          {%- endfor %}
-          <li class="place" data-uk="{{ location.uk }}" data-en="{{ location.en }}">{{ location.en }}</li>
-        </ul>
-      </div>
-
-      <div class="controls">
-        <div class="ctl-row">
-          <div class="seg" role="group" aria-label="Theme">
-            <button type="button" data-theme-mode="auto"></button><button type="button" data-theme-mode="light"></button><button type="button" data-theme-mode="dark"></button>
-          </div>
-          <div class="seg" role="group" aria-label="Language">
-            <button type="button" data-lang="uk"></button><button type="button" data-lang="en"></button>
-          </div>
-        </div>
-        <div class="ctl-row downloads">
-          <a class="btn primary" href="{{ downloads_prefix }}resume.pdf" data-dl-pdf data-i18n-btn-pdf></a>
-          <a class="btn" href="{{ downloads_prefix }}resume.docx" data-dl-docx data-i18n-btn-word></a>
-          <a class="btn" href="{{ downloads_prefix }}resume.md" data-dl-md data-i18n-btn-markdown></a>
-        </div>
-      </div>
-    </div>
-
+<header class="topbar">
+  <div class="topbar-in">
     <nav class="profiles" aria-label="Resume profiles">
       <span class="profiles-hint" data-i18n-profiles-hint></span>
       <a href="{{ root_prefix }}index.html" class="{% if target.id=='full' %}active{% endif %}" data-i18n-nav-full></a>
@@ -56,6 +26,38 @@
       <a href="{{ root_prefix }}web/index.html" class="{% if target.id=='web' %}active{% endif %}" data-i18n-nav-web></a>
       <a href="{{ root_prefix }}ai/index.html" class="{% if target.id=='ai' %}active{% endif %}" data-i18n-nav-ai></a>
     </nav>
+    <div class="tools">
+      <button type="button" class="btn" data-theme-cycle aria-label="Theme"></button>
+      <details class="dd dd-lang">
+        <summary class="btn" data-i18n-lang-current></summary>
+        <div class="menu">
+          <button type="button" data-lang="uk"></button>
+          <button type="button" data-lang="en"></button>
+        </div>
+      </details>
+      <details class="dd dd-export">
+        <summary class="btn primary" data-i18n-export></summary>
+        <div class="menu">
+          <a href="{{ downloads_prefix }}resume.pdf" data-dl-pdf data-i18n-btn-pdf></a>
+          <a href="{{ downloads_prefix }}resume.docx" data-dl-docx data-i18n-btn-word></a>
+          <a href="{{ downloads_prefix }}resume.md" data-dl-md data-i18n-btn-markdown></a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n-target-title>{{ title_text }}</p>
+    <h1 data-i18n-name>{{ name_text }}</h1>
+    <p class="lead" data-i18n-summary>{{ summary_text }}</p>
+    <ul class="contacts">
+      {%- for c in contacts %}
+      <li><a href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>{{ c.label }}</a></li>
+      {%- endfor %}
+      <li class="place" data-uk="{{ location.uk }}" data-en="{{ location.en }}">{{ location.en }}</li>
+    </ul>
   </div>
 </header>
 
