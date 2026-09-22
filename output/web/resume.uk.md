@@ -1,17 +1,17 @@
 # Юрій Заїка
 
-**Full Stack інженер · .NET та Angular**
+**Full Stack інженер · .NET, Angular та React**
 
 xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Дніпро, Україна · віддалено або гібрид
 
-Full stack інженер: ASP.NET Core та Web API на бекенді, Angular 13 з Kendo UI і Razor на фронті, real-time через SignalR. Внутрішні системи для роздрібної мережі — доступи, аудит, звітність, інтеграції.
+Full stack інженер: ASP.NET Core та Web API на бекенді, Angular (Kendo UI) і React / Next.js на фронті, real-time через SignalR. Внутрішні системи для роздрібної мережі — доступи, аудит, звітність, інтеграції.
 
 ## Коротко
 
 - 10 років — у виробничих системах роздрібу, з 2016 і донині
 - 2 000+ — користувачів у системі доступів, яку я побудував
-- 33 — внутрішні системи мережі, у яких є мій код
-- .NET 7 — основна платформа внутрішніх сервісів мережі
+- 33 — внутрішні системи мережі, які я побудував або розширив
+- 8 років — будую внутрішні сервіси мережі на ASP.NET Core, з 2018
 
 ## Що я зробив
 
@@ -22,30 +22,43 @@ Full stack інженер: ASP.NET Core та Web API на бекенді, Angula
 
 ## Стек
 
-- **Бекенд:** C#, .NET 7 / 6 / 5, .NET Core 3.1, ASP.NET Core, ASP.NET MVC, Web API / REST, SignalR, Worker Services, Hangfire, Quartz, AutoMapper, Flurl.Http
-- **Дані:** MS SQL Server, T-SQL, EF Core 7, ADO.NET, Oracle, PostgreSQL, Firebird, SSIS, SSRS, SQL CLR
-- **Фронтенд:** Angular 13, TypeScript, Kendo UI for Angular, Telerik UI for ASP.NET Core, Razor / MVC views, JavaScript, HTML / CSS, jQuery
-- **Інтеграції:** EDI / ЕДО, M.E.Doc, Oracle EBS, 1С, Kafka, BizTalk, WCF / SOAP, SMPP / GSM API, API Gateway, GemBox.Spreadsheet
-- **Доступи:** OpenID Connect, OAuth2, JWT Bearer, ADFS, Kerberos / Negotiate, Active Directory, RBAC
+- **Бекенд:** C#, .NET (Core 3.1 → 7), ASP.NET Core, ASP.NET MVC, Web API / REST, SignalR, Worker Services, Hangfire, Quartz, AutoMapper
+- **Фронтенд:** Angular 13, TypeScript, React 19, Next.js 16, Kendo UI for Angular, Telerik UI for ASP.NET Core, Razor / MVC views, Tailwind CSS, Zustand / TanStack Query, Expo / React Native, MapLibre, JavaScript, HTML / CSS
+- **Дані:** MS SQL Server, T-SQL, PostgreSQL, EF Core, ADO.NET, Oracle, SSIS, SSRS, SQL CLR
+- **Доступи та безпека:** OpenID Connect, OAuth2, JWT Bearer, ADFS, Kerberos / Negotiate, Active Directory, RBAC
+- **Інтеграції:** EDI / ЕДО, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, WCF / SOAP, SMPP / GSM API, API Gateway
 - **Якість і постачання:** xUnit / NUnit, NSubstitute / Moq, AutoFixture, FluentAssertions, SonarQube, Jenkins, Docker, Serilog / NLog, Elastic APM, Git / приватний NuGet
-- **Підходи:** Модернізація legacy, Модульний моноліт, Трирівнева архітектура, Проєктування інтеграцій, Робота в проді 24/7
-- **Робота з ІІ-агентами:** Claude Code, MCP-сервери, Власні субагенти та хуки, Інструменти для агентів (CDP)
-- **JS / TS екосистема:** Next.js 16, React 19, NestJS, Prisma, Expo / React Native, Tailwind CSS, Zustand / TanStack Query, MapLibre, Vite, Node.js
+- **Підходи:** Відповідальність за продакшен, Модернізація legacy, Проєктування інтеграцій, Модульний моноліт, GitHub Actions
+- **Робота з ШІ-агентами:** Claude Code, MCP-сервери, Власні субагенти та хуки, Інструменти для агентів (CDP)
+- **Node.js бекенд:** NestJS, Prisma, Node.js
 
 ## Ключові проєкти
 
 ### UAM — керування доступом · 2020 — 2022
-*Розробник*
 
 Централізована система прав і аутентифікації для 2000+ користувачів мережі: ролі та заявки на доступ, інтеграція з Active Directory, вхід через OpenID Connect, ADFS і Kerberos.
 
 `ASP.NET Core` `C#` `EF Core` `MS SQL` `OIDC` `ADFS` `Angular`
 
 
-### Журнали магазину · 2021 — 2023
-*Розробник*
+### SMS Messenger · 2020 — 2023
+*Архітектор і розробник*
 
-Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах.
+Платформа SMS-сповіщень мережі: власний шлюз до операторів через SMPP і до модемів через GSM API, черги розсилок, API для внутрішніх систем.
+
+`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
+
+
+### API Gateway і сервіс звітності · 2018 — 2020
+
+Шлюз для внутрішніх сервісів мережі та сервіс звітності поверх MS SQL: єдина точка входу, наскрізна передача заголовків і авторизації, вивантаження у Excel.
+
+`.NET Core` `Web API` `MS SQL` `SSRS` `GemBox.Spreadsheet`
+
+
+### Журнали магазину · 2021 — 2023
+
+Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах, оновлення в реальному часі через SignalR.
 
 `ASP.NET Core` `Angular 13` `Kendo UI` `EF Core` `MS SQL` `SignalR`
 
@@ -59,46 +72,28 @@ Full stack інженер: ASP.NET Core та Web API на бекенді, Angula
 
 
 ### Вторсировина та оборотна тара · 2019 — 2024
-*Розробник*
 
 Веб-система обліку вторсировини й пулінгової тари з документообігом: інтеграція з M.E.Doc, обмін з постачальниками через EDI, звітність для бухгалтерії.
 
 `ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
 
 
-### SMS Messenger · 2020 — 2023
-*Архітектор і розробник*
-
-Платформа SMS-сповіщень мережі: власний шлюз до операторів через SMPP і до модемів через GSM API, черги розсилок, API для внутрішніх систем.
-
-`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
-
-
-### API Gateway і сервіс звітності · 2018 — 2020
-*Розробник*
-
-Шлюз для внутрішніх сервісів мережі та сервіс звітності поверх MS SQL: єдина точка входу, наскрізна передача заголовків і авторизації, вивантаження у Excel.
-
-`.NET Core` `Web API` `MS SQL` `SSRS` `GemBox.Spreadsheet`
-
-
 ## Досвід
-
-### Фриланс і власні проєкти — AI / Python та full stack розробник
-2026-03 — донині · Дніпро · віддалено · Python, ML та фулстек-розробка
-
-- Клієнтські проєкти: NestJS з Prisma і PostgreSQL, Next.js 16 з React 19, мобільний застосунок на Expo з картами MapLibre.
-- Щоденна робота з ІІ-агентами: MCP-сервери, власні субагенти та хуки, свій CDP-інспектор браузера як інструмент для агентів.
-- Конвеєр збору оголошень із шести джерел із геокодуванням, дедублікацією і публікацією каталогу через GitHub Actions.
 
 ### АТБ-Маркет — Провідний прикладний програміст
 2016-06 — донині · Дніпро · найбільша продуктова мережа України
 
-- З 2018 паралельно будую внутрішні сервіси на ASP.NET Core і Angular: доступи, аудит, звітність, інтеграції — 33 системи мережі містять мій код.
+- З 2018 будую і супроводжую внутрішні сервіси мережі на ASP.NET Core і Angular: доступи, аудит, звітність, інтеграції — 33 системи мережі, які я побудував або розширив.
 - UAM: система керування доступом для 2000+ користувачів на OpenID Connect, ADFS і Kerberos.
-- Інтеграції мережі: EDI та ЕДО, M.E.Doc, Oracle EBS, 1С, Kafka, BizTalk, SSIS та SSRS.
+- Інтеграції мережі: EDI та ЕДО, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS та SSRS.
 - Інженерна практика: тести на xUnit і NSubstitute, SonarQube та Jenkins, Serilog, Docker, приватний NuGet.
 - Паралельно супроводжую legacy-клієнт торгової системи на Delphi, функції якого поступово переходять у .NET-сервіси — знаю систему, яку заміняю, зсередини.
+
+### Власні проєкти та фриланс — Незалежний розробник
+2026-03 — донині · Дніпро · віддалено · паралельно з основною роботою в АТБ-Маркет
+
+- Клієнтські проєкти: NestJS з Prisma і PostgreSQL, Next.js 16 з React 19, мобільний застосунок на Expo з картами MapLibre.
+- Щоденна робота з ШІ-агентами: MCP-сервери, власні субагенти та хуки, свій CDP-інспектор браузера як інструмент для агентів.
 
 Раніше: Фриланс і приватна практика — Фулстек-розробник (2015–2016) · Курси сучасних професій — Викладач програмування (2015–2016) · Криворізький залізорудний комбінат — Інженер-програміст (2013–2016) · ОССистем — Програміст (2012–2013)
 
@@ -114,11 +109,10 @@ Full stack інженер: ASP.NET Core та Web API на бекенді, Angula
 
 ## Освіта та сертифікати
 
-- **Комп'ютерна інженерія · комп'ютерні системи та мережі** — Запорізький інститут економіки та інформаційних технологій (2008 — 2011)
-- **Гірничий інженер підземних розробок** — Криворізький технічний університет (1998 — 2003)
+- **Комп'ютерна інженерія · комп'ютерні системи та мережі** — Запорізький інститут економіки та інформаційних технологій ()
 - **Angular 9** — Luxoft (2021)
 
 ## Мови
 
 - **Українська** — рідна
-- **Англійська** — технічна документація і листування; розмовна — базова
+- **Англійська** — технічна документація і листування

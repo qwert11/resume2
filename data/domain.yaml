@@ -1,14 +1,14 @@
 domain:
-  - term: {uk: "еАкциз / АЕД", en: "Excise stamps (eAcciz / AED)"}
+  - term: {uk: "еАкциз / АЕД", en: "Excise control: electronic excise stamps and documents (AED)"}
     note: {uk: "Сканування марок, електронні акцизні документи, номер у накладній", en: "Stamp scanning, electronic excise documents, document number in the invoice"}
     tags: [full, dotnet, delphi, retail]
   - term: {uk: "Податкові накладні (ПН/РН)", en: "Tax invoices and adjustments"}
     note: {uk: "Випуск, коригування, узгодження полів із ДПС", en: "Issuing, adjustments, field rules aligned with the tax service"}
     tags: [full, dotnet, delphi, retail]
-  - term: {uk: "УКТЗЕД", en: "UKTZED commodity codes"}
+  - term: {uk: "УКТЗЕД", en: "Commodity classification codes (HS / UKTZED)"}
     note: {uk: "Синхронізація товарних кодів між системами мережі", en: "Commodity code synchronization across the network's systems"}
     tags: [full, dotnet, delphi, retail]
-  - term: {uk: "Митні спрощення", en: "Customs simplifications"}
+  - term: {uk: "Митні спрощення", en: "Customs and import clearance"}
     note: {uk: "Митні декларації, прихід імпорту на склади, звітність", en: "Customs declarations, import receipts into warehouses, reporting"}
     tags: [full, dotnet, delphi, retail]
   - term: {uk: "EDI та ЕДО", en: "EDI and e-document flow"}

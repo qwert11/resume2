@@ -72,7 +72,7 @@ def filter_groups(groups, tags, full_mode):
             continue
         if not (full_mode or has_any_tag(g.get('tags', []), tags)):
             continue
-        out.append({'id': g['id'], 'label': norm(g['label']), 'items': items})
+        out.append({'id': g['id'], 'label': norm(g['label']), 'items': items, 'primary': g.get('primary')})
     return out
 
 
@@ -135,8 +135,8 @@ def doc_sections(bundle, lang):
                   for g in bundle['skill_groups']],
         'projects': [{
             'name': t(pr['name'], lang),
-            'period': pr['period'],
-            'role': t(pr['role'], lang),
+            'period': pr['period'].replace('present', present),
+            'role': t(pr.get('role'), lang),
             'description': t(pr['description'], lang),
             'stack': pr.get('stack') or [],
             'link': (pr.get('link') or {}).get('href', ''),
@@ -193,7 +193,8 @@ def build_docx(path, s):
     for pr in s['projects']:
         par = doc.add_paragraph()
         par.add_run(f"{pr['name']} ({pr['period']})").bold = True
-        doc.add_paragraph(f"{pr['role']}")
+        if pr['role']:
+            doc.add_paragraph(f"{pr['role']}")
         doc.add_paragraph(pr['description'])
         if pr['stack']:
             doc.add_paragraph(', '.join(pr['stack']))
@@ -220,7 +221,7 @@ def build_docx(path, s):
 
     doc.add_heading(s['labels']['education'], level=1)
     for e in s['education']:
-        doc.add_paragraph(f"{e['specialty']} — {e['institution']} ({e['period']})", style='List Bullet')
+        doc.add_paragraph(f"{e['specialty']} — {e['institution']}" + (f" ({e['period']})" if e['period'] else ''), style='List Bullet')
 
     if s['side_projects']:
         doc.add_heading(s['labels']['side'], level=1)
@@ -311,7 +312,7 @@ def build_pdf(path, s):
 
     heading(s['labels']['projects'])
     for pr in s['projects']:
-        text_block(f"{pr['name']} ({pr['period']}) — {pr['role']}", bold, 10, 14)
+        text_block(f"{pr['name']} ({pr['period']})" + (f" — {pr['role']}" if pr['role'] else ''), bold, 10, 14)
         text_block(pr['description'], reg, 9.5, 13, indent=10, color=(0.24, 0.27, 0.27))
         if pr['stack']:
             text_block(', '.join(pr['stack']), reg, 9, 12, indent=10, color=(0.4, 0.44, 0.43))
@@ -336,7 +337,7 @@ def build_pdf(path, s):
 
     heading(s['labels']['education'])
     for e in s['education']:
-        text_block(f"• {e['specialty']} — {e['institution']} ({e['period']})", reg, 9.5, 13)
+        text_block(f"• {e['specialty']} — {e['institution']}" + (f" ({e['period']})" if e['period'] else ''), reg, 9.5, 13)
 
     if s['side_projects']:
         heading(s['labels']['side'])
@@ -375,13 +376,15 @@ def build_target(target_id, env):
         'summary_obj': profile['summary'][target['summary_key']],
         'metrics': filter_items(profile['metrics'], tags, full_mode)[:4],
         'achievements': by_profile(filter_items(achievements, tags, full_mode), target_id)[:6],
-        'skill_groups': filter_groups(skill_groups, tags, full_mode),
+        'skill_groups': by_profile(filter_groups(skill_groups, tags, full_mode), target_id),
         'projects': by_profile(filter_items(projects, tags, full_mode), target_id)[:6],
-        'experiences': [bullets_for(e, target_id) for e in filter_items(experiences, tags, full_mode)
-                        if is_detailed(e, target_id, full_mode)],
-        'earlier': [e for e in filter_items(experiences, tags, full_mode) if not is_detailed(e, target_id, full_mode)],
+        'experiences': by_profile([bullets_for(e, target_id) for e in filter_items(experiences, tags, full_mode)
+                                   if is_detailed(e, target_id, full_mode)], target_id),
+        # свёрнутая строка «Раніше» — хронология для любого профиля, без фильтра по тегам
+        'earlier': [e for e in experiences if not is_detailed(e, target_id, full_mode)],
         'domain': filter_items(domain, tags, full_mode),
-        'education': education,
+        # запись без tags показывается во всех профилях
+        'education': [e for e in education if 'tags' not in e or full_mode or has_any_tag(e['tags'], tags)],
         'languages': languages,
         'side_projects': filter_items(side_projects, tags, full_mode),
     }

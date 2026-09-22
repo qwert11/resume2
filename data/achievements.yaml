@@ -16,7 +16,7 @@ achievements:
     tags: [full, dotnet, web, integration, messaging]
   - text:
       uk: "Проводжу зміни фіскального законодавства наскрізь по системах: еАкциз і АЕД, УКТЗЕД, митні спрощення, нові ставки ПДВ — у працюючій мережі, без зупинки магазинів."
-      en: "Deliver fiscal-law changes end to end across the systems: excise stamps and AED, UKTZED codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores."
+      en: "Deliver fiscal-law changes end to end across the systems: excise stamps and electronic excise documents (AED), UKTZED commodity codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores."
     primary: [delphi]
     tags: [full, dotnet, delphi, retail, enterprise]
   - text:
@@ -39,3 +39,8 @@ achievements:
       en: "Built Python data pipelines: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright for protected pages, six listing sources merged into one catalog."
     primary: [ai]
     tags: [ai, python, data]
+  - text:
+      uk: "Зробив інструменти для LLM-агентів: MCP-сервери, власні субагенти та хуки, власний CDP-інспектор браузера як інструмент для агентів."
+      en: "Built tooling for LLM agents: MCP servers, custom subagents and hooks, and a CDP browser inspector written as agent tooling."
+    primary: [ai]
+    tags: [ai, python]

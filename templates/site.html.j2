@@ -89,9 +89,11 @@
           <article class="project">
             <div class="project-head">
               <h3 data-uk="{{ p.name.uk }}" data-en="{{ p.name.en }}">{{ p.name.en }}</h3>
-              <span class="period">{{ p.period }}</span>
+              <span class="period">{% if p.period.endswith('present') %}{{ p.period[:-7] }}<span data-i18n-present></span>{% else %}{{ p.period }}{% endif %}</span>
             </div>
+            {%- if p.role %}
             <p class="role" data-uk="{{ p.role.uk }}" data-en="{{ p.role.en }}">{{ p.role.en }}</p>
+            {%- endif %}
             <p data-uk="{{ p.description.uk }}" data-en="{{ p.description.en }}">{{ p.description.en }}</p>
             {%- if p.stack %}
             <ul class="chips small">{% for s in p.stack %}<li>{{ s }}</li>{% endfor %}</ul>
@@ -177,7 +179,7 @@
           <li class="{{ e.kind }}">
             <strong data-uk="{{ e.specialty.uk }}" data-en="{{ e.specialty.en }}">{{ e.specialty.en }}</strong>
             <span data-uk="{{ e.institution.uk }}" data-en="{{ e.institution.en }}">{{ e.institution.en }}</span>
-            <span class="period">{{ e.period }}</span>
+            {%- if e.period %}<span class="period">{{ e.period }}</span>{% endif %}
           </li>
           {%- endfor %}
         </ul>

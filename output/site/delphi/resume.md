@@ -4,30 +4,30 @@
 
 xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Dnipro, Ukraine · remote or hybrid
 
-Delphi engineer with ten years of production ownership of a retail trading system: the client the network's stores run on daily, MS SQL, the fiscal workflows. Currently migrating the client from Delphi 6 to Delphi 12, with a purpose-built tool that diffs UI and database mappings between the two versions.
+Delphi engineer, ten years owning the client side of the trading system at Ukraine's largest grocery network: the VCL desktop application its stores run on daily, MS SQL, the fiscal workflows. Currently migrating it from Delphi 6 to Delphi 12/13 with a purpose-built tool that diffs UI and database mappings between versions.
 
 ## At a glance
 
 - 10 years — in production retail systems, 2016 to now
-- 33 — internal systems of the network carry my code
-- 2 stacks — Delphi and .NET in parallel, with the business running
+- 33 — internal systems of the network I built or extended
+- 6 → 12/13 Delphi — leading the trading client migration between versions, 2024 to now
 
 ## What I delivered
 
 - Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs UI and database mappings between versions so the switch does not break store operations.
-- Deliver fiscal-law changes end to end across the systems: excise stamps and AED, UKTZED codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores.
+- Deliver fiscal-law changes end to end across the systems: excise stamps and electronic excise documents (AED), UKTZED commodity codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores.
 
 ## Stack
 
-- **Data:** MS SQL Server, T-SQL, EF Core 7, ADO.NET, Oracle, PostgreSQL, Firebird, SSIS, SSRS, SQL CLR
-- **Integrations:** EDI / ЕДО, M.E.Doc, WCF / SOAP
-- **Quality and delivery:** Git / приватний NuGet
 - **Desktop:** Delphi 6 → 12 / 13, Object Pascal, VCL, DevExpress, FastReport, RX Library, Indy, NativeExcel / NativeXml, ADO / OLE DB
-- **Engineering practice:** Legacy modernization, Three-tier architecture, Integration design, Production ownership
+- **Data:** MS SQL Server, T-SQL, PostgreSQL, Oracle, Firebird, SSIS, SSRS
+- **Integrations:** EDI / e-document flow, M.E.Doc
+- **Quality and delivery:** Git / private NuGet feed
+- **Engineering practice:** Production ownership, Legacy modernization, Integration design
 
 ## Key projects
 
-### Trading client migration: Delphi 6 to Delphi 12 · 2024 — 2026
+### Trading client migration: Delphi 6 to Delphi 12/13 · 2024 — present
 *Migration lead*
 
 Moving the trading system client to a modern compiler with a core redesign. Built a separate tool that diffs UI and table mappings between the old and new versions, so the migration runs without stopping stores.
@@ -37,7 +37,7 @@ Moving the trading system client to a modern compiler with a core redesign. Buil
 https://github.com/qwert11/d6_d13_dbmapping_checker
 
 
-### Fiscal workflows: excise stamps, AED, customs · 2019 — 2026
+### Fiscal workflows: excise stamps, e-excise documents, customs · 2019 — present
 *Owner of the workstream*
 
 End-to-end delivery of legislative change inside the trading system: excise stamp scanning, electronic excise documents, tax invoice adjustments, UKTZED codes, customs simplifications, the 14% VAT rate.
@@ -55,41 +55,40 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 
 ## Experience
 
-### ATB-Market — Lead Application Programmer
+### ATB-Market — Lead Software Engineer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network
 
 - Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
+- Leading the Delphi 6 → 12/13 client migration, including a core redesign, without interrupting store operations.
 - Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
-- Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
+- Integrated the trading system with suppliers and back office: EDI orders and waybills, tax documents via M.E.Doc, data exchange with Oracle EBS and 1C.
+- Since 2018 also build the ASP.NET Core services that gradually take over the Delphi client's functions — both sides of the modernization.
 
-### Kryvyi Rih Iron Ore Combine — Engineer Programmer
+### Kryvyi Rih Iron Ore Combine — Software Engineer
 2013-06 — 2016-06 · Kryvyi Rih · underground ore mining
 
 - A system for ore extraction and shipment accounting, developed and maintained in production.
 - Automated per-shift distribution of consumables and hazard-pay meals.
 - Maintained production-preparation and budgeting systems; implemented Firebird table synchronization.
 
-Earlier: Modern Professions Courses — Programming Instructor (2015–2016) · OSSystem — Developer (2012–2013)
+Earlier: Freelance and private practice — Full Stack Developer (2015–2016) · Modern Professions Courses — Programming Instructor (2015–2016) · OSSystem — Developer (2012–2013)
 
 
 ## Domain knowledge
 
-- **Excise stamps (eAcciz / AED)** — Stamp scanning, electronic excise documents, document number in the invoice
+- **Excise control: electronic excise stamps and documents (AED)** — Stamp scanning, electronic excise documents, document number in the invoice
 - **Tax invoices and adjustments** — Issuing, adjustments, field rules aligned with the tax service
-- **UKTZED commodity codes** — Commodity code synchronization across the network's systems
-- **Customs simplifications** — Customs declarations, import receipts into warehouses, reporting
+- **Commodity classification codes (HS / UKTZED)** — Commodity code synchronization across the network's systems
+- **Customs and import clearance** — Customs declarations, import receipts into warehouses, reporting
 - **EDI and e-document flow** — Orders, waybills, pooled packaging, supplier exchange
 - **VAT rates and pricing regions** — Cross-system rate changes, region setup when a store opens
 
 ## Education and certificates
 
-- **Computer Engineering · computer systems and networks** — Zaporizhzhia Institute of Economics and Information Technologies (2008 — 2011)
-- **Mining Engineer, underground development** — Kryvyi Rih Technical University (1998 — 2003)
-- **Angular 9** — Luxoft (2021)
+- **Computer Engineering · computer systems and networks** — Zaporizhzhia Institute of Economics and Information Technologies ()
+- **Mining Engineer, underground development** — Kryvyi Rih Technical University ()
 
 ## Languages
 
 - **Ukrainian** — native
-- **English** — technical documentation and written communication; spoken at basic level
+- **English** — technical documentation and written communication

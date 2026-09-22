@@ -24,8 +24,8 @@
 ## {{ s.labels.projects }}
 {% for p in s.projects %}
 ### {{ p.name }} · {{ p.period }}
-*{{ p.role }}*
-
+{% if p.role %}*{{ p.role }}*
+{% endif %}
 {{ p.description }}
 {% if p.stack %}
 `{{ p.stack | join('` `') }}`

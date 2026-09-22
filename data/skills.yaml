@@ -1,11 +1,12 @@
+# Группы стека. `primary` — профили, где группа идёт первой (порядок внутри primary — как в файле).
 groups:
   - id: backend
+    primary: [full, dotnet, web]
     label: {uk: "Бекенд", en: "Backend"}
     tags: [full, dotnet, web, backend]
     items:
       - {name: "C#", tags: [dotnet, web, backend]}
-      - {name: ".NET 7 / 6 / 5", tags: [dotnet, web, backend]}
-      - {name: ".NET Core 3.1", tags: [dotnet, web, backend]}
+      - {name: ".NET (Core 3.1 → 7)", tags: [dotnet, web, backend]}
       - {name: "ASP.NET Core", tags: [dotnet, web, backend]}
       - {name: "ASP.NET MVC", tags: [dotnet, web, backend]}
       - {name: "Web API / REST", tags: [dotnet, web, backend]}
@@ -14,49 +15,41 @@ groups:
       - {name: "Hangfire", tags: [dotnet, backend]}
       - {name: "Quartz", tags: [dotnet, backend]}
       - {name: "AutoMapper", tags: [dotnet, backend]}
-      - {name: "Flurl.Http", tags: [dotnet, backend]}
-  - id: data
-    label: {uk: "Дані", en: "Data"}
-    tags: [full, dotnet, delphi, web, sql, data]
-    items:
-      - {name: "MS SQL Server", tags: [dotnet, delphi, web, sql, data]}
-      - {name: "T-SQL", tags: [dotnet, delphi, web, sql, data]}
-      - {name: "EF Core 7", tags: [dotnet, web, sql]}
-      - {name: "ADO.NET", tags: [dotnet, sql]}
-      - {name: "Oracle", tags: [dotnet, delphi, sql]}
-      - {name: "PostgreSQL", tags: [dotnet, web, sql, data]}
-      - {name: "Firebird", tags: [delphi, sql]}
-      - {name: "SSIS", tags: [dotnet, sql]}
-      - {name: "SSRS", tags: [dotnet, sql]}
-      - {name: "SQL CLR", tags: [dotnet, sql]}
   - id: frontend
+    primary: [web]
     label: {uk: "Фронтенд", en: "Front end"}
     tags: [full, dotnet, web, frontend]
     items:
       - {name: "Angular 13", tags: [web, dotnet, frontend]}
       - {name: "TypeScript", tags: [web, dotnet, frontend]}
+      - {name: "React 19", tags: [web, dotnet, frontend]}
+      - {name: "Next.js 16", tags: [web, frontend]}
       - {name: "Kendo UI for Angular", tags: [web, dotnet, frontend]}
       - {name: "Telerik UI for ASP.NET Core", tags: [web, dotnet, frontend]}
       - {name: "Razor / MVC views", tags: [web, dotnet, frontend]}
+      - {name: "Tailwind CSS", tags: [web, frontend]}
+      - {name: "Zustand / TanStack Query", tags: [web, frontend]}
+      - {name: "Expo / React Native", tags: [web]}
+      - {name: "MapLibre", tags: [web]}
       - {name: "JavaScript", tags: [web, dotnet, frontend]}
       - {name: "HTML / CSS", tags: [web, dotnet, frontend]}
-      - {name: "jQuery", tags: [web, frontend]}
-  - id: integration
-    label: {uk: "Інтеграції", en: "Integrations"}
-    tags: [full, dotnet, delphi, web, integration]
+  - id: data
+    primary: [dotnet]
+    label: {uk: "Дані", en: "Data"}
+    tags: [full, dotnet, delphi, web, sql, data]
     items:
-      - {name: "EDI / ЕДО", tags: [dotnet, delphi, integration]}
-      - {name: "M.E.Doc", tags: [dotnet, delphi, integration]}
-      - {name: "Oracle EBS", tags: [dotnet, integration]}
-      - {name: "1С", tags: [dotnet, integration]}
-      - {name: "Kafka", tags: [dotnet, integration]}
-      - {name: "BizTalk", tags: [dotnet, integration]}
-      - {name: "WCF / SOAP", tags: [dotnet, delphi, integration]}
-      - {name: "SMPP / GSM API", tags: [dotnet, integration]}
-      - {name: "API Gateway", tags: [dotnet, web, integration]}
-      - {name: "GemBox.Spreadsheet", tags: [dotnet, integration]}
+      - {name: "MS SQL Server", tags: [dotnet, delphi, web, sql, data]}
+      - {name: "T-SQL", tags: [dotnet, delphi, web, sql, data]}
+      - {name: "PostgreSQL", tags: [dotnet, web, sql, data]}
+      - {name: "EF Core", tags: [dotnet, web]}
+      - {name: "ADO.NET", tags: [dotnet]}
+      - {name: "Oracle", tags: [dotnet, delphi, sql]}
+      - {name: "Firebird", tags: [delphi]}
+      - {name: "SSIS", tags: [dotnet, sql]}
+      - {name: "SSRS", tags: [dotnet, sql]}
+      - {name: "SQL CLR", tags: [dotnet]}
   - id: security
-    label: {uk: "Доступи", en: "Access and security"}
+    label: {uk: "Доступи та безпека", en: "Access and security"}
     tags: [full, dotnet, web, authentication]
     items:
       - {name: "OpenID Connect", tags: [dotnet, web, authentication]}
@@ -66,6 +59,19 @@ groups:
       - {name: "Kerberos / Negotiate", tags: [dotnet, web, authentication]}
       - {name: "Active Directory", tags: [dotnet, web, authentication]}
       - {name: "RBAC", tags: [dotnet, web, authentication]}
+  - id: integration
+    label: {uk: "Інтеграції", en: "Integrations"}
+    tags: [full, dotnet, delphi, web, integration]
+    items:
+      - {name: {uk: "EDI / ЕДО", en: "EDI / e-document flow"}, tags: [dotnet, delphi, integration]}
+      - {name: "M.E.Doc", tags: [dotnet, delphi, integration]}
+      - {name: "Oracle EBS", tags: [dotnet, integration]}
+      - {name: "1C", tags: [dotnet, integration]}
+      - {name: "Kafka", tags: [dotnet, integration]}
+      - {name: "BizTalk", tags: [dotnet, integration]}
+      - {name: "WCF / SOAP", tags: [dotnet, integration]}
+      - {name: "SMPP / GSM API", tags: [dotnet, integration]}
+      - {name: "API Gateway", tags: [dotnet, web, integration]}
   - id: quality
     label: {uk: "Якість і постачання", en: "Quality and delivery"}
     tags: [full, dotnet, delphi, web, quality]
@@ -79,8 +85,18 @@ groups:
       - {name: "Docker", tags: [dotnet, web, quality]}
       - {name: "Serilog / NLog", tags: [dotnet, web, quality]}
       - {name: "Elastic APM", tags: [dotnet, quality]}
-      - {name: "Git / приватний NuGet", tags: [dotnet, delphi, web, quality]}
+      - {name: {uk: "Git / приватний NuGet", en: "Git / private NuGet feed"}, tags: [dotnet, delphi, web, quality]}
+  - id: practice
+    label: {uk: "Підходи", en: "Engineering practice"}
+    tags: [full, dotnet, delphi, web, ai, architecture]
+    items:
+      - {name: {uk: "Відповідальність за продакшен", en: "Production ownership"}, tags: [dotnet, delphi, web, ai, architecture]}
+      - {name: {uk: "Модернізація legacy", en: "Legacy modernization"}, tags: [dotnet, delphi, web, architecture]}
+      - {name: {uk: "Проєктування інтеграцій", en: "Integration design"}, tags: [dotnet, delphi, architecture]}
+      - {name: {uk: "Модульний моноліт", en: "Modular monolith"}, tags: [dotnet, web, architecture]}
+      - {name: "GitHub Actions", tags: [ai, python, web]}
   - id: desktop
+    primary: [delphi]
     label: {uk: "Десктоп", en: "Desktop"}
     tags: [full, delphi, desktop]
     items:
@@ -93,16 +109,8 @@ groups:
       - {name: "Indy", tags: [delphi, desktop]}
       - {name: "NativeExcel / NativeXml", tags: [delphi, desktop]}
       - {name: "ADO / OLE DB", tags: [delphi, desktop]}
-  - id: practice
-    label: {uk: "Підходи", en: "Engineering practice"}
-    tags: [full, dotnet, delphi, web, ai, architecture]
-    items:
-      - {name: {uk: "Модернізація legacy", en: "Legacy modernization"}, tags: [dotnet, delphi, web, ai, architecture]}
-      - {name: {uk: "Модульний моноліт", en: "Modular monolith"}, tags: [dotnet, web, architecture]}
-      - {name: {uk: "Трирівнева архітектура", en: "Three-tier architecture"}, tags: [dotnet, delphi, architecture]}
-      - {name: {uk: "Проєктування інтеграцій", en: "Integration design"}, tags: [dotnet, delphi, architecture]}
-      - {name: {uk: "Робота в проді 24/7", en: "Production ownership"}, tags: [dotnet, delphi, web, ai, architecture]}
   - id: python
+    primary: [ai]
     label: {uk: "Python", en: "Python"}
     tags: [full, ai, python, data]
     items:
@@ -116,10 +124,10 @@ groups:
       - {name: "selectolax", tags: [ai, python, data]}
       - {name: "NumPy", tags: [ai, python]}
       - {name: "pytest", tags: [ai, python, quality]}
-      - {name: "ruff / black", tags: [ai, python, quality]}
-      - {name: "Jinja2", tags: [ai, python]}
+      - {name: "ruff", tags: [ai, python, quality]}
   - id: ai
-    label: {uk: "Мова та ML", en: "Speech and ML"}
+    primary: [ai]
+    label: {uk: "Мовлення та ML", en: "Speech and ML"}
     tags: [full, ai]
     items:
       - {name: "faster-whisper (CUDA)", tags: [ai]}
@@ -131,25 +139,19 @@ groups:
       - {name: "WASAPI / sounddevice", tags: [ai]}
       - {name: "PyTorch / GPU", tags: [ai]}
   - id: agents
-    label: {uk: "Робота з ІІ-агентами", en: "Working with AI agents"}
+    primary: [ai]
+    label: {uk: "Робота з ШІ-агентами", en: "Working with AI agents"}
     tags: [full, ai, python, web]
     items:
       - {name: "Claude Code", tags: [ai, python, web]}
-      - {name: "MCP-сервери", tags: [ai, python, web]}
+      - {name: {uk: "MCP-сервери", en: "MCP servers"}, tags: [ai, python, web]}
       - {name: {uk: "Власні субагенти та хуки", en: "Custom subagents and hooks"}, tags: [ai, web]}
       - {name: {uk: "Інструменти для агентів (CDP)", en: "Agent tooling (CDP)"}, tags: [ai, web]}
       - {name: {uk: "Промпт-інженерія", en: "Prompt engineering"}, tags: [ai]}
-  - id: jsstack
-    label: {uk: "JS / TS екосистема", en: "JS / TS ecosystem"}
-    tags: [full, web, ai, frontend]
+  - id: nodejs
+    label: {uk: "Node.js бекенд", en: "Node.js back end"}
+    tags: [full, node]
     items:
-      - {name: "Next.js 16", tags: [web, frontend, ai]}
-      - {name: "React 19", tags: [web, frontend, ai]}
-      - {name: "NestJS", tags: [web, backend, ai]}
-      - {name: "Prisma", tags: [web, backend, ai]}
-      - {name: "Expo / React Native", tags: [web]}
-      - {name: "Tailwind CSS", tags: [web, frontend]}
-      - {name: "Zustand / TanStack Query", tags: [web, frontend]}
-      - {name: "MapLibre", tags: [web]}
-      - {name: "Vite", tags: [web, frontend]}
-      - {name: "Node.js", tags: [web, backend, ai]}
+      - {name: "NestJS", tags: [node]}
+      - {name: "Prisma", tags: [node]}
+      - {name: "Node.js", tags: [node]}
