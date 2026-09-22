@@ -16,7 +16,7 @@ Ten years inside the core systems of one retail network: a Delphi trading platfo
 ## What I delivered
 
 - Built UAM, the network's in-house access management system: 2,000+ users on OpenID Connect, ADFS and Kerberos, replacing per-system manual permission handling.
-- Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs forms and database mappings between versions so the switch does not break store operations.
+- Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs UI and database mappings between versions so the switch does not break store operations.
 - Architected and built the network's SMS notification platform: SMPP and GSM API, .NET Web API and MS SQL, designed for peak-volume campaigns.
 - Deliver fiscal-law changes end to end across the systems: excise stamps and AED, UKTZED codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores.
 - Built the internal web systems stores work with: journals and audit, recyclables with M.E.Doc integration, a support portal, coupons and reporting.
@@ -49,7 +49,7 @@ Real-time speech recognition from calls: parallel microphone and system-audio ca
 ### Trading client migration: Delphi 6 to Delphi 12 · 2024 — 2026
 *Migration lead*
 
-Moving the trading system client (955 units, 828 forms) to a modern compiler with a core redesign. Built a separate tool that diffs forms and table mappings between the old and new versions, so the migration runs without stopping stores.
+Moving the trading system client to a modern compiler with a core redesign. Built a separate tool that diffs UI and table mappings between the old and new versions, so the migration runs without stopping stores.
 
 `Delphi 12/13` `Object Pascal` `VCL` `MS SQL` `DevExpress` `FastReport`
 
@@ -83,7 +83,7 @@ A listings parser with pagination, normalization and price history: SQLAlchemy 2
 ### Legacy system map · 2026
 *Author*
 
-A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map.
+A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and screen relations, and a Next.js app renders it as an annotated map.
 
 `Python` `Next.js` `TypeScript` `PostgreSQL`
 
@@ -93,7 +93,7 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 ### Freelance and personal projects — AI / Python and Full Stack Developer
 2026-03 — present · Dnipro · remote · Python, ML and full stack work
 
-- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
 - And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
 - A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
 - A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
@@ -104,12 +104,12 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network
 
-- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
+- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
 - UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
 - Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
 - Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool.
+- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 - Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed.
 
 ### Freelance and private practice — Full Stack Developer

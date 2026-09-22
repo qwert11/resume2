@@ -11,7 +11,7 @@ Full stack engineer: ASP.NET Core and Web API on the back end, Angular 13 with K
 - 10 years — in production retail systems, 2016 to now
 - 2 000+ — users on the access system I built
 - 33 — internal systems of the network carry my code
-- .NET 7 — the main service platform; 3.1, 5 and 6 also in support
+- .NET 7 — the main platform of the network's internal services
 
 ## What I delivered
 
@@ -54,7 +54,7 @@ Centralized permissions and authentication for 2,000+ people in the network: rol
 ### Store Journals · 2021 — 2023
 *Developer*
 
-Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting. The most code-intensive of the web systems.
+Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting.
 
 `ASP.NET Core` `Angular 13` `Kendo UI` `EF Core` `MS SQL` `SignalR`
 
@@ -78,7 +78,7 @@ A listings parser with pagination, normalization and price history: SQLAlchemy 2
 ### Legacy system map · 2026
 *Author*
 
-A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map.
+A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and screen relations, and a Next.js app renders it as an annotated map.
 
 `Python` `Next.js` `TypeScript` `PostgreSQL`
 
@@ -88,7 +88,7 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 ### Freelance and personal projects — AI / Python and Full Stack Developer
 2026-03 — present · Dnipro · remote · Python, ML and full stack work
 
-- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
 - And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
 - A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
 - A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
@@ -99,12 +99,12 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network
 
-- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
+- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
 - UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
 - Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
 - Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool.
+- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 - Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed.
 
 ### Freelance and private practice — Full Stack Developer

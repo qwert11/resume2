@@ -4,20 +4,19 @@
 
 xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Dnipro, Ukraine · remote or hybrid
 
-Ten years of production engineering plus a personal track in Python and ML. Built a real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD and streaming — 55 modules, 15,500 lines of Python, with regression measurements of latency and RTF. Alongside it: data pipelines on SQLAlchemy and Playwright, and daily work with AI agents.
+Ten years of production engineering plus a personal track in Python and ML. Built a real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD and streaming, with regression measurements of latency and RTF. Alongside it: data pipelines on SQLAlchemy and Playwright, and daily work with AI agents.
 
 ## At a glance
 
 - 10 years — in production retail systems, 2016 to now
-- 15 500 lines — of Python in the speech pipeline: 55 modules, STT and diarization
 - 27 — repositories in 2026: freelance and personal projects
 - 6 sources — in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB
 
 ## What I delivered
 
-- Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs forms and database mappings between versions so the switch does not break store operations.
+- Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs UI and database mappings between versions so the switch does not break store operations.
 - Architected and built the network's SMS notification platform: SMPP and GSM API, .NET Web API and MS SQL, designed for peak-volume campaigns.
-- Built a real-time speech pipeline in Python: faster-whisper on GPU, pyannote diarization, VAD and streaming capture — 55 modules and 15,500 lines of code.
+- Built a real-time speech pipeline in Python: faster-whisper on GPU, pyannote diarization, VAD and streaming capture.
 - Wrote its quality regression suite — RTF, latency, noise robustness, accuracy ceilings — and drive decisions from the numbers rather than impressions.
 - Built Python data pipelines: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright for protected pages, six listing sources merged into one catalog.
 
@@ -52,7 +51,7 @@ A listings parser with pagination, normalization and price history: SQLAlchemy 2
 ### Legacy system map · 2026
 *Author*
 
-A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map.
+A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and screen relations, and a Next.js app renders it as an annotated map.
 
 `Python` `Next.js` `TypeScript` `PostgreSQL`
 
@@ -68,7 +67,7 @@ Client project: a NestJS back end with Swagger and PostgreSQL, a Next.js web app
 ### Trading client migration: Delphi 6 to Delphi 12 · 2024 — 2026
 *Migration lead*
 
-Moving the trading system client (955 units, 828 forms) to a modern compiler with a core redesign. Built a separate tool that diffs forms and table mappings between the old and new versions, so the migration runs without stopping stores.
+Moving the trading system client to a modern compiler with a core redesign. Built a separate tool that diffs UI and table mappings between the old and new versions, so the migration runs without stopping stores.
 
 `Delphi 12/13` `Object Pascal` `VCL` `MS SQL` `DevExpress` `FastReport`
 
@@ -88,7 +87,7 @@ The network's SMS notification platform: an in-house gateway to carriers over SM
 ### Freelance and personal projects — AI / Python and Full Stack Developer
 2026-03 — present · Dnipro · remote · Python, ML and full stack work
 
-- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
 - And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
 - A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
 - A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
@@ -99,12 +98,12 @@ The network's SMS notification platform: an in-house gateway to carriers over SM
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network
 
-- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
+- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
 - UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
 - Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
 - Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool.
+- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 - Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed.
 
 
