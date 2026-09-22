@@ -41,6 +41,9 @@
 - {{ b }}
 {%- endfor %}
 {% endfor %}
+{%- if s.earlier %}
+{{ s.labels.earlier_label }}{{ s.earlier }}
+{% endif %}
 {% if s.domain %}
 ## {{ s.labels.domain }}
 {% for term, note in s.domain %}

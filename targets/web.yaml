@@ -1,5 +1,5 @@
 id: web
 route: web
-include_tags: [web, frontend, backend, dotnet, fullstack, ecommerce, php, java, reporting, integration, signalr, sql, authentication, retail, quality]
+include_tags: [web, frontend, backend, dotnet, fullstack, ecommerce, php, java, reporting, integration, signalr, sql, authentication, retail]
 summary_key: web
 title_key: web

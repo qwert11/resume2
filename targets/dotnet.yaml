@@ -1,5 +1,5 @@
 id: dotnet
 route: dotnet
-include_tags: [dotnet, web, backend, frontend, enterprise, integration, messaging, reporting, authentication, authorization, access-management, signalr, sql, quality, architecture, retail, fullstack]
+include_tags: [dotnet, web, backend, frontend, enterprise, integration, messaging, reporting, authentication, authorization, access-management, signalr, sql, retail, fullstack]
 summary_key: dotnet
 title_key: dotnet

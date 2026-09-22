@@ -11,7 +11,3 @@ education:
     specialty: {uk: "Angular 9", en: "Angular 9"}
     period: "2021"
     kind: certificate
-  - institution: {uk: "Інститут сучасних професій", en: "Institute of Modern Professions"}
-    specialty: {uk: "Програмування в середовищі Delphi", en: "Programming in Delphi"}
-    period: "2006"
-    kind: certificate

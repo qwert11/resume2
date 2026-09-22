@@ -81,6 +81,32 @@ def by_profile(items, target_id):
     return sorted(items, key=lambda x: 0 if target_id in (x.get('primary') or []) else 1)
 
 
+def bullets_for(exp, target_id):
+    """Pick and order bullets per profile via `bullet_order`; fall back to `default`, then to all."""
+    order = exp.get('bullet_order') or {}
+    idx = order.get(target_id) or order.get('default')
+    if not idx:
+        return exp
+    picked = {lang: [lst[i] for i in idx if i < len(lst)] for lang, lst in exp['bullets'].items()}
+    return dict(exp, bullets=picked)
+
+
+def is_detailed(exp, target_id, full_mode):
+    """`detail_in` lists the profiles where a position gets bullets; elsewhere it folds into one line."""
+    if 'detail_in' not in exp:
+        return True
+    return target_id in exp['detail_in']
+
+
+def earlier_text(items, lang, present_word):
+    """Older or short positions in one line: company — title (years)."""
+    parts = []
+    for e in items:
+        end = present_word if e['end'] == 'present' else e['end'][:4]
+        parts.append(f"{t(e['company'], lang)} — {t(e['title'], lang)} ({e['start'][:4]}–{end})")
+    return ' · '.join(parts)
+
+
 def period_text(item, lang, present_word):
     end = item['end']
     if end == 'present':
@@ -100,7 +126,8 @@ def doc_sections(bundle, lang):
         'summary': t(bundle['summary_obj'], lang),
         'location': t(p['location'], lang),
         'contacts': [c['label'] for c in p['contacts']],
-        'labels': {k: t(v, lang) for k, v in p['sections'].items()},
+        'labels': dict({k: t(v, lang) for k, v in p['sections'].items()},
+                       earlier_label=t(p['ui']['earlier'], lang) + ': '),
         'metrics': [f"{m['value']} {t(m['unit'], lang)} — {t(m['label'], lang)}".replace('  ', ' ')
                     for m in bundle['metrics']],
         'achievements': [t(a['text'], lang) for a in bundle['achievements']],
@@ -122,6 +149,7 @@ def doc_sections(bundle, lang):
             'city': t(e['city'], lang),
             'bullets': e['bullets'][lang if lang in e['bullets'] else 'en'],
         } for e in bundle['experiences']],
+        'earlier': earlier_text(bundle['earlier'], lang, present),
         'domain': [(t(d['term'], lang), t(d['note'], lang)) for d in bundle['domain']],
         'education': [{
             'specialty': t(e['specialty'], lang),
@@ -180,6 +208,8 @@ def build_docx(path, s):
         doc.add_paragraph(f"{e['period']} · {e['city']}")
         for b in e['bullets']:
             doc.add_paragraph(b, style='List Bullet')
+    if s['earlier']:
+        doc.add_paragraph(f"{s['labels'].get('earlier_label', '')}{s['earlier']}")
 
     if s['domain']:
         doc.add_heading(s['labels']['domain'], level=1)
@@ -296,6 +326,8 @@ def build_pdf(path, s):
         for b in e['bullets']:
             text_block('• ' + b, reg, 9.5, 13, indent=10, color=(0.24, 0.27, 0.27))
         space(4)
+    if s['earlier']:
+        text_block(s['labels'].get('earlier_label', '') + s['earlier'], reg, 9, 12.5, color=(0.4, 0.44, 0.43))
 
     if s['domain']:
         heading(s['labels']['domain'])
@@ -342,10 +374,12 @@ def build_target(target_id, env):
         'title_obj': profile['titles'][target['title_key']],
         'summary_obj': profile['summary'][target['summary_key']],
         'metrics': filter_items(profile['metrics'], tags, full_mode)[:4],
-        'achievements': filter_items(achievements, tags, full_mode)[:5],
+        'achievements': by_profile(filter_items(achievements, tags, full_mode), target_id)[:6],
         'skill_groups': filter_groups(skill_groups, tags, full_mode),
         'projects': by_profile(filter_items(projects, tags, full_mode), target_id)[:6],
-        'experiences': filter_items(experiences, tags, full_mode),
+        'experiences': [bullets_for(e, target_id) for e in filter_items(experiences, tags, full_mode)
+                        if is_detailed(e, target_id, full_mode)],
+        'earlier': [e for e in filter_items(experiences, tags, full_mode) if not is_detailed(e, target_id, full_mode)],
         'domain': filter_items(domain, tags, full_mode),
         'education': education,
         'languages': languages,
@@ -377,6 +411,8 @@ def build_target(target_id, env):
         skill_groups=bundle['skill_groups'],
         projects=bundle['projects'],
         experiences=bundle['experiences'],
+        earlier={'uk': earlier_text(bundle['earlier'], 'uk', t(profile['ui']['present'], 'uk')),
+                 'en': earlier_text(bundle['earlier'], 'en', t(profile['ui']['present'], 'en'))},
         domain=bundle['domain'],
         education=bundle['education'],
         languages=bundle['languages'],

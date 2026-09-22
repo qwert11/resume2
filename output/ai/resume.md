@@ -9,13 +9,11 @@ Ten years of production engineering plus a personal track in Python and ML. Buil
 ## At a glance
 
 - 10 years — in production retail systems, 2016 to now
-- 27 — repositories in 2026: freelance and personal projects
+- 33 — internal systems of the network carry my code
 - 6 sources — in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB
 
 ## What I delivered
 
-- Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs UI and database mappings between versions so the switch does not break store operations.
-- Architected and built the network's SMS notification platform: SMPP and GSM API, .NET Web API and MS SQL, designed for peak-volume campaigns.
 - Built a real-time speech pipeline in Python: faster-whisper on GPU, pyannote diarization, VAD and streaming capture.
 - Wrote its quality regression suite — RTF, latency, noise robustness, accuracy ceilings — and drive decisions from the numbers rather than impressions.
 - Built Python data pipelines: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright for protected pages, six listing sources merged into one catalog.
@@ -23,8 +21,7 @@ Ten years of production engineering plus a personal track in Python and ML. Buil
 ## Stack
 
 - **Data:** MS SQL Server, T-SQL, PostgreSQL
-- **Quality and delivery:** xUnit / NUnit, NSubstitute / Moq, AutoFixture, FluentAssertions, SonarQube, Jenkins, Docker, Serilog / NLog, Elastic APM, Git / приватний NuGet
-- **Engineering practice:** Legacy modernization, Modular monolith, Three-tier architecture, Integration design, Production ownership
+- **Engineering practice:** Legacy modernization, Production ownership
 - **Python:** Python 3.11, FastAPI, SQLAlchemy 2, Alembic, Pydantic, Typer CLI, Playwright, selectolax, NumPy, pytest, ruff / black, Jinja2
 - **Speech and ML:** faster-whisper (CUDA), pyannote.audio, VAD, Speaker diarization, Quality evaluation: RTF, latency, Streaming audio pipelines, WASAPI / sounddevice, PyTorch / GPU
 - **Working with AI agents:** Claude Code, MCP-сервери, Custom subagents and hooks, Agent tooling (CDP), Prompt engineering
@@ -64,24 +61,6 @@ Client project: a NestJS back end with Swagger and PostgreSQL, a Next.js web app
 `NestJS` `Next.js` `Expo` `React Native` `PostgreSQL` `MapLibre` `TanStack Query`
 
 
-### Trading client migration: Delphi 6 to Delphi 12 · 2024 — 2026
-*Migration lead*
-
-Moving the trading system client to a modern compiler with a core redesign. Built a separate tool that diffs UI and table mappings between the old and new versions, so the migration runs without stopping stores.
-
-`Delphi 12/13` `Object Pascal` `VCL` `MS SQL` `DevExpress` `FastReport`
-
-https://github.com/qwert11/d6_d13_dbmapping_checker
-
-
-### SMS Messenger · 2020 — 2023
-*Architect and developer*
-
-The network's SMS notification platform: an in-house gateway to carriers over SMPP and to modems over GSM API, campaign queues, an API for internal systems.
-
-`ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
-
-
 ## Experience
 
 ### Freelance and personal projects — AI / Python and Full Stack Developer
@@ -98,12 +77,8 @@ The network's SMS notification platform: an in-house gateway to carriers over SM
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network
 
-- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
-- UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
 - Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
-- Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 - Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed.
 
 
@@ -112,7 +87,6 @@ The network's SMS notification platform: an in-house gateway to carriers over SM
 - **Computer Engineering · computer systems and networks** — Zaporizhzhia Institute of Economics and Information Technologies (2008 — 2011)
 - **Mining Engineer, underground development** — Kryvyi Rih Technical University (1998 — 2003)
 - **Angular 9** — Luxoft (2021)
-- **Programming in Delphi** — Institute of Modern Professions (2006)
 
 ## Languages
 

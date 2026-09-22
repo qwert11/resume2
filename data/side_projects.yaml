@@ -18,11 +18,8 @@ side_projects:
   - name: {uk: "SQL Profiler Normalizer", en: "SQL Profiler Normalizer"}
     note: {uk: "перетворює sp_executesql із профайлера на читабельний EXEC, повністю у браузері", en: "turns profiler sp_executesql output into a readable EXEC, fully client-side"}
     link: "https://github.com/qwert11/sql-profiler-normalizer"
-    tags: [full, dotnet, web, sql, ai]
-  - name: {uk: "Angle Tool", en: "Angle Tool"}
-    note: {uk: "вимірювання кутів на графіках і скриншотах прямо у браузері", en: "measures line angles on charts and screenshots in the browser"}
-    link: "https://github.com/qwert11/slope-angle"
-    tags: [full, web, frontend, ai]
+    tags: [full, dotnet, sql]
+
   - name: {uk: "Resume Engine", en: "Resume Engine"}
     note: {uk: "цей сайт: YAML → Jinja → HTML, PDF, DOCX і Markdown двома мовами", en: "this site: YAML to Jinja to HTML, PDF, DOCX and Markdown in two languages"}
     link: "https://github.com/qwert11/resume2"

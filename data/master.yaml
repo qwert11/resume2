@@ -39,7 +39,7 @@ profile:
     - value: "33"
       unit: {uk: "", en: ""}
       label: {uk: "внутрішні системи мережі, у яких є мій код", en: "internal systems of the network carry my code"}
-      tags: [full, dotnet, delphi, web]
+      tags: [full, dotnet, delphi, web, ai]
     - value: "2"
       unit: {uk: "стеки", en: "stacks"}
       label: {uk: "Delphi і .NET — паралельно, без зупинки бізнесу", en: "Delphi and .NET in parallel, with the business running"}
@@ -48,10 +48,6 @@ profile:
       unit: {uk: "", en: ""}
       label: {uk: "основна платформа внутрішніх сервісів мережі", en: "the main platform of the network's internal services"}
       tags: [dotnet, web]
-    - value: "27"
-      unit: {uk: "", en: ""}
-      label: {uk: "репозиторіїв за 2026 рік: фриланс і власні проєкти", en: "repositories in 2026: freelance and personal projects"}
-      tags: [ai, python, web]
     - value: "6"
       unit: {uk: "джерел", en: "sources"}
       label: {uk: "у конвеєрі збору оголошень: OLX, ЛУН, Rieltor, Metrazh, Telegram, FB", en: "in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB"}
@@ -82,4 +78,5 @@ profile:
     en: {uk: "Анг", en: "EN"}
     details_anchor: {uk: "Деталі нижче", en: "Details below"}
     present: {uk: "донині", en: "present"}
+    earlier: {uk: "Раніше", en: "Earlier"}
     profiles_hint: {uk: "Профіль резюме", en: "Resume profile"}

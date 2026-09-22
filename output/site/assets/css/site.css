@@ -185,6 +185,12 @@ p{margin:0}
 .clean li{position:relative;padding-left:16px;color:var(--ink-soft);font-size:14.5px}
 .clean li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--line);border-radius:50%}
 
+.earlier{
+  margin-top:18px;padding-top:14px;border-top:1px dotted var(--line);
+  font-size:13.5px;line-height:1.5;color:var(--muted);
+}
+.earlier [data-i18n-earlier]{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+
 /* ---------- side column ---------- */
 .skill-group+.skill-group{margin-top:18px}
 .skill-group h3{

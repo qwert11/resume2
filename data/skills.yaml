@@ -95,13 +95,13 @@ groups:
       - {name: "ADO / OLE DB", tags: [delphi, desktop]}
   - id: practice
     label: {uk: "Підходи", en: "Engineering practice"}
-    tags: [full, dotnet, delphi, web, architecture]
+    tags: [full, dotnet, delphi, web, ai, architecture]
     items:
-      - {name: {uk: "Модернізація legacy", en: "Legacy modernization"}, tags: [dotnet, delphi, web, architecture]}
+      - {name: {uk: "Модернізація legacy", en: "Legacy modernization"}, tags: [dotnet, delphi, web, ai, architecture]}
       - {name: {uk: "Модульний моноліт", en: "Modular monolith"}, tags: [dotnet, web, architecture]}
       - {name: {uk: "Трирівнева архітектура", en: "Three-tier architecture"}, tags: [dotnet, delphi, architecture]}
       - {name: {uk: "Проєктування інтеграцій", en: "Integration design"}, tags: [dotnet, delphi, architecture]}
-      - {name: {uk: "Робота в проді 24/7", en: "Production ownership"}, tags: [dotnet, delphi, web, architecture]}
+      - {name: {uk: "Робота в проді 24/7", en: "Production ownership"}, tags: [dotnet, delphi, web, ai, architecture]}
   - id: python
     label: {uk: "Python", en: "Python"}
     tags: [full, ai, python, data]

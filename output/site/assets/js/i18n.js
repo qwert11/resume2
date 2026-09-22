@@ -53,6 +53,7 @@
     setText('[data-i18n-nav-ai]', tr(ui.ai, lang));
     setText('[data-i18n-profiles-hint]', tr(ui.profiles_hint, lang));
     setText('[data-i18n-present]', tr(ui.present, lang));
+    setText('[data-i18n-earlier]', tr(ui.earlier, lang));
 
     setText('[data-i18n-section-summary_cards]', tr(sec.summary_cards, lang));
     setText('[data-i18n-section-stack]', tr(sec.stack, lang));

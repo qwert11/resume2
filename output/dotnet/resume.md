@@ -16,10 +16,9 @@ Senior .NET engineer: ASP.NET Core and Web API on .NET 7, EF Core and T-SQL, int
 ## What I delivered
 
 - Built UAM, the network's in-house access management system: 2,000+ users on OpenID Connect, ADFS and Kerberos, replacing per-system manual permission handling.
-- Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs UI and database mappings between versions so the switch does not break store operations.
 - Architected and built the network's SMS notification platform: SMPP and GSM API, .NET Web API and MS SQL, designed for peak-volume campaigns.
-- Deliver fiscal-law changes end to end across the systems: excise stamps and AED, UKTZED codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores.
 - Built the internal web systems stores work with: journals and audit, recyclables with M.E.Doc integration, a support portal, coupons and reporting.
+- Deliver fiscal-law changes end to end across the systems: excise stamps and AED, UKTZED codes, customs simplifications, new VAT rates, all in a live retail network without stopping the stores.
 
 ## Stack
 
@@ -67,20 +66,20 @@ The network's SMS notification platform: an in-house gateway to carriers over SM
 `ASP.NET Core` `Web API` `SMPP` `GSM API` `MS SQL` `Hangfire`
 
 
-### Real-estate data pipeline · 2026
-*Author*
+### API Gateway and reporting service · 2018 — 2020
+*Developer*
 
-A listings parser with pagination, normalization and price history: SQLAlchemy 2 models with Alembic migrations over PostgreSQL, two transports — plain HTTP and Playwright for protected pages — a Typer CLI, pydantic-settings config and pytest coverage.
+A gateway for the network's internal services and a reporting service over MS SQL: a single entry point, header and auth propagation, Excel exports.
 
-`Python` `SQLAlchemy 2` `Alembic` `PostgreSQL` `Playwright` `selectolax` `Typer` `pytest`
+`.NET Core` `Web API` `MS SQL` `SSRS` `GemBox.Spreadsheet`
 
 
-### Legacy system map · 2026
-*Author*
+### Fiscal workflows: excise stamps, AED, customs · 2019 — 2026
+*Owner of the workstream*
 
-A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and screen relations, and a Next.js app renders it as an annotated map.
+End-to-end delivery of legislative change inside the trading system: excise stamp scanning, electronic excise documents, tax invoice adjustments, UKTZED codes, customs simplifications, the 14% VAT rate.
 
-`Python` `Next.js` `TypeScript` `PostgreSQL`
+`Delphi` `T-SQL` `MS SQL` `EDI` `M.E.Doc`
 
 
 ## Experience
@@ -88,49 +87,21 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 ### Freelance and personal projects — AI / Python and Full Stack Developer
 2026-03 — present · Dnipro · remote · Python, ML and full stack work
 
-- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
-- And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
-- A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
-- A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
-- A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations.
 - Client work: NestJS with Prisma and PostgreSQL, Next.js 16 with React 19, a mobile app on Expo with MapLibre maps.
 - Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling.
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
 
 ### ATB-Market — Lead Application Programmer
 2016-06 — present · Dnipro · Ukraine's largest grocery retail network
 
-- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
 - UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
 - Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
-- Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 - Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed.
+- Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
+- In parallel I maintain the legacy Delphi trading client whose functions are moving into the .NET services — I know the system being replaced from the inside.
 
-### Freelance and private practice — Full Stack Developer
-2015-07 — 2016-07 · Kryvyi Rih
-
-- An automated car dealership system on Java and Firebird: vehicles, sales and reporting.
-- Online stores on WordPress / WooCommerce and OpenCart, plus a custom WordPress plugin.
-
-### Modern Professions Courses — Programming Instructor
-2015-01 — 2016-01 · Kryvyi Rih
-
-- A beginners' course: OOP, Java Core, Hibernate, SQL, from first programs to working with a database.
-- Wrote the course materials and labs, and took groups from zero to their first projects.
-
-### Kryvyi Rih Iron Ore Combine — Engineer Programmer
-2013-06 — 2016-06 · Kryvyi Rih · underground ore mining
-
-- A system for ore extraction and shipment accounting, developed and maintained in production.
-- Automated per-shift distribution of consumables and hazard-pay meals.
-- Maintained production-preparation and budgeting systems; implemented Firebird table synchronization.
-
-### OSSystem — Developer
-2012-11 — 2013-04 · Odesa
-
-- Development on Master INSURANCE, an insurance automation system: three-tier architecture with ORM over Oracle, reports in XL Report.
-- Maintained Expo, a system tracking vehicle and container movement across port territories.
+Earlier: Freelance and private practice — Full Stack Developer (2015–2016) · Modern Professions Courses — Programming Instructor (2015–2016) · Kryvyi Rih Iron Ore Combine — Engineer Programmer (2013–2016) · OSSystem — Developer (2012–2013)
 
 
 ## Domain knowledge
@@ -147,7 +118,6 @@ A tool for mapping the trading system before migration: Python parses .dfm and .
 - **Computer Engineering · computer systems and networks** — Zaporizhzhia Institute of Economics and Information Technologies (2008 — 2011)
 - **Mining Engineer, underground development** — Kryvyi Rih Technical University (1998 — 2003)
 - **Angular 9** — Luxoft (2021)
-- **Programming in Delphi** — Institute of Modern Professions (2006)
 
 ## Languages
 

@@ -124,6 +124,9 @@
             </div>
           </article>
           {%- endfor %}
+          {%- if earlier.en %}
+          <p class="earlier"><span data-i18n-earlier></span>: <span data-uk="{{ earlier.uk }}" data-en="{{ earlier.en }}">{{ earlier.en }}</span></p>
+          {%- endif %}
         </div>
       </section>
 
