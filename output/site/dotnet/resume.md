@@ -69,12 +69,12 @@ Web system for recyclables and pooled packaging with document flow: M.E.Doc inte
 `ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
 
 
-### Legacy system map · 2026
-*Author*
+### AM Mobility — web and mobile app · 2026
+*Full stack developer*
 
-A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and screen relations, and a Next.js app renders it as an annotated map.
+Client project: a NestJS back end with Swagger and PostgreSQL, a Next.js web app, and an Expo / React Native mobile app with MapLibre maps, geolocation and offline state.
 
-`Python` `Next.js` `TypeScript` `PostgreSQL`
+`NestJS` `Next.js` `Expo` `React Native` `PostgreSQL` `MapLibre` `TanStack Query`
 
 
 ## Experience

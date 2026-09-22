@@ -69,12 +69,12 @@ Senior .NET інженер: ASP.NET Core та Web API, EF Core і T-SQL, інт�
 `ASP.NET Core` `ASP.NET MVC` `EF Core` `MS SQL` `M.E.Doc` `EDI`
 
 
-### Карта legacy-системи · 2026
-*Автор*
+### AM Mobility — веб і мобільний застосунок · 2026
+*Фулстек-розробник*
 
-Інструмент для розбору торгової системи перед міграцією: Python парсить .dfm і .pas, витягує виклики процедур і зв'язки екранів, Next.js показує це картою з анотаціями та коментарями по вузлах.
+Клієнтський проєкт: бекенд на NestJS зі Swagger і PostgreSQL, вебчастина на Next.js, мобільний застосунок на Expo та React Native з картами MapLibre, геолокацією і офлайн-станом.
 
-`Python` `Next.js` `TypeScript` `PostgreSQL`
+`NestJS` `Next.js` `Expo` `React Native` `PostgreSQL` `MapLibre` `TanStack Query`
 
 
 ## Досвід
